@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import RentGroup, RentProduct, ProductInstance
+from .models import Group, Product, Status
 
 # Register your models here.
-admin.site.register(RentGroup)
-admin.site.register(RentProduct)
-admin.site.register(ProductInstance)
+admin.site.register(Group)
+admin.site.register(Product)
+admin.site.register(Status)
