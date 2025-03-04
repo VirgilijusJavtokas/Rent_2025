@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Aprašyti modeliai ir sukurt administratoriaus svetainė">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Atnaujinti modeliai, pridetas Warehouse modelis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,11 +70,20 @@
       <option name="project" value="LOCAL" />
       <updated>1740670020494</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Atnaujinti modeliai, pridetas Warehouse modelis">
+      <option name="closed" value="true" />
+      <created>1740916863306</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740916863306</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Aprašyti modeliai ir sukurt administratoriaus svetainė" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aprašyti modeliai ir sukurt administratoriaus svetainė" />
+    <MESSAGE value="Atnaujinti modeliai, pridetas Warehouse modelis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atnaujinti modeliai, pridetas Warehouse modelis" />
   </component>
 </project>
