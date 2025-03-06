@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pridetas produktu puslapis">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Produktu puslapyje rodo prekes pagal grupes">
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/products.html" afterDir="false" />
     </list>
@@ -155,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741268469078</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Produktu puslapyje rodo prekes pagal grupes">
+      <option name="closed" value="true" />
+      <created>1741271229717</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741271229717</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -167,6 +173,7 @@
     <MESSAGE value="Aptvarkytas dizainas, dar reikes pakeisti foto kreipimasi su STATIC" />
     <MESSAGE value="Sudetos grupiu foto ir sutvarkytas Footer" />
     <MESSAGE value="Pridetas produktu puslapis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridetas produktu puslapis" />
+    <MESSAGE value="Produktu puslapyje rodo prekes pagal grupes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Produktu puslapyje rodo prekes pagal grupes" />
   </component>
 </project>
