@@ -29,14 +29,6 @@
     <!-- Main CSS File -->
 
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: Dewi
-    * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
-    * Updated: Aug 07 2024 with Bootstrap v5.3.3
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -55,7 +47,7 @@
                 <li><a href="#hero" class="active">Pradžia</a></li>
                 <li><a href="#about">Apie</a></li>
                 <li><a href="#services">Paslaugos</a></li>
-                <li><a href="#services-2">Taisyklės</a></li>
+                <li><a href="#features">Taisyklės</a></li>
                 <li><a href="#team">Komanda</a></li>
                 <li><a href="#contact">Kontaktai</a></li>
             </ul>
@@ -214,7 +206,7 @@
                             <div class="icon">
                                 <i class="bi bi-lightbulb"></i>
                             </div>
-                            <a href="service-details.html" class="stretched-link">
+                            <a href="{% url 'products' %}" class="stretched-link">
                                 <h3>Apšvietimas</h3>
                             </a>
                             <p>Girliandos laukui, pakabinami šviestuvai</p>
@@ -656,7 +648,6 @@
             </div>
             </div>
         </section><!-- /Contact Section -->
-
 
 </main>
 

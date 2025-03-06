@@ -13,3 +13,8 @@ def index(request):
         'num_groups': num_groups,
     }
     return render(request, 'base.html', context)
+
+def products(request):
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'products.html', context)
