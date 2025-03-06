@@ -90,7 +90,7 @@
 
             <div class="row gy-4">
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3>
+                    <h3>Mūsų istorija ir vizija</h3>
                     <img src="static/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
                     <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis
                         quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas
@@ -146,9 +146,31 @@
                     <div class="stats-item d-flex align-items-center w-100 h-100">
                         <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }} data-purecounter-duration="1"
                                   class="purecounter"></span>
-                            <p>Happy Clients</p>
+                            <p>Laimingi klientai</p>
+                        </div>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item d-flex align-items-center w-100 h-100">
+                        <i class="bi-list-check color-orange flex-shrink-0"></i>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }} data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Produktų kategorijos</p>
+                        </div>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item d-flex align-items-center w-100 h-100">
+                        <i class="bi bi-lamp color-green flex-shrink-0"></i>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_products }} data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Produktu</p>
                         </div>
                     </div>
                 </div><!-- End Stats Item -->
@@ -157,31 +179,9 @@
                     <div class="stats-item d-flex align-items-center w-100 h-100">
                         <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                                  class="purecounter"></span>
-                            <p>Projects</p>
-                        </div>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item d-flex align-items-center w-100 h-100">
-                        <i class="bi bi-headset color-green flex-shrink-0"></i>
-                        <div>
-                            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                                  class="purecounter"></span>
-                            <p>Hours Of Support</p>
-                        </div>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="stats-item d-flex align-items-center w-100 h-100">
-                        <i class="bi bi-people color-pink flex-shrink-0"></i>
-                        <div>
                             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
                                   class="purecounter"></span>
-                            <p>Hard Workers</p>
+                            <p>Užsakymų</p>
                         </div>
                     </div>
                 </div><!-- End Stats Item -->
@@ -198,7 +198,7 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Produktai</h2>
-            <p class='mb-5'>Nuomojamos prekės<br></p>
+            <p>Nuomojamos prekės<br></p>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -208,17 +208,16 @@
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                     <div class="service-item">
                         <div class="img">
-                            <img src="static/img/services-1.jpg" class="img-fluid" alt="">
+                            <img src="{%static 'img/lamps.jpeg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="details position-relative">
                             <div class="icon">
-                                <i class="bi bi-activity"></i>
+                                <i class="bi bi-lightbulb"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Nesciunt Mete</h3>
+                                <h3>Apšvietimas</h3>
                             </a>
-                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores
-                                iure perferendis.</p>
+                            <p>Girliandos laukui, pakabinami šviestuvai</p>
                         </div>
                     </div>
                 </div><!-- End Service Item -->
@@ -226,17 +225,16 @@
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                     <div class="service-item">
                         <div class="img">
-                            <img src="static/img/services-2.jpg" class="img-fluid" alt="">
+                            <img src="{%static 'img/furniture.jpeg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="details position-relative">
                             <div class="icon">
-                                <i class="bi bi-broadcast"></i>
+                                <i class="bi bi-easel"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Eosle Commodi</h3>
+                                <h3>Baldai</h3>
                             </a>
-                            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum
-                                hic non ut nesciunt dolorem.</p>
+                            <p>Lauko baldai: stalai ir kėdės.</p>
                         </div>
                     </div>
                 </div><!-- End Service Item -->
@@ -244,17 +242,16 @@
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                     <div class="service-item">
                         <div class="img">
-                            <img src="static/img/services-3.jpg" class="img-fluid" alt="">
+                            <img src="{%static 'img/tent.jpeg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="details position-relative">
                             <div class="icon">
-                                <i class="bi bi-easel"></i>
+                                <i class="bi bi-triangle-half"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Ledo Markt</h3>
+                                <h3>Palapinės</h3>
                             </a>
-                            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id
-                                voluptas adipisci eos earum corrupti.</p>
+                            <p>Įvairių dydžių palapinės ir ne tik.</p>
                         </div>
                     </div>
                 </div><!-- End Service Item -->
@@ -669,68 +666,20 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="index.html" class="logo d-flex align-items-center">
-                    <span class="sitename">Dewi</span>
+                    <span class="sitename">Mėlyna zona</span>
                 </a>
                 <div class="footer-contact pt-3">
-                    <p>A108 Adam Street</p>
-                    <p>New York, NY 535022</p>
-                    <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                    <p>Plati gatvė 4, Kaunas, Lietuva</p>
+                    <p class="mt-3"><strong>Telefonas:</strong> <span>+370 123 12345</span></p>
+                    <p><strong>Email:</strong> <span>melynazona.lt</span></p>
                 </div>
                 <div class="social-links d-flex mt-4">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
                     <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
+                <p></p>
             </div>
 
-            <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-12 footer-newsletter">
-                <h4>Our Newsletter</h4>
-                <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                <form action="forms/newsletter.php" method="post" class="php-email-form">
-                    <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                                                                                         value="Subscribe"></div>
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Dewi</strong> <span>All Rights Reserved</span></p>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you've purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-                href="https://themewagon.com">ThemeWagon</a>
         </div>
     </div>
 
