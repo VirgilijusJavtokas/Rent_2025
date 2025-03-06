@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Produktai</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Produktai</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     {% load static %}
 
     <!-- Favicons -->
@@ -33,53 +33,77 @@
 
 <body class="portfolio-details-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+<header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Mėlyna zona</h1>
-      </a>
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Mėlyna zona</h1>
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{% url 'index' %}#hero">Pradžia</a></li>
-          <li><a href="{% url 'index' %}#about">Apie</a></li>
-          <li><a href="{% url 'index' %}#services">Paslaugos</a></li>
-          <li><a href="{% url 'index' %}#features">Taisyklės</a></li>
-          <li><a href="{% url 'index' %}#team">Komanda</a></li>
-          <li><a href="{% url 'index' %}#contact">Kontaktai</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{% url 'index' %}#hero">Pradžia</a></li>
+                <li><a href="{% url 'index' %}#about">Apie</a></li>
+                <li><a href="{% url 'index' %}#services">Paslaugos</a></li>
+                <li><a href="{% url 'index' %}#features">Taisyklės</a></li>
+                <li><a href="{% url 'index' %}#team">Komanda</a></li>
+                <li><a href="{% url 'index' %}#contact">Kontaktai</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="main">
+<main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
-      <div class="container position-relative">
-        <h1>Produktai</h1>
-        <p>Kažką čia galima parašyti.</p>
-        <nav class="breadcrumbs">
-        </nav>
-      </div>
+    <div class="page-title dark-background" data-aos="fade"
+         style="background-image: url(assets/img/page-title-bg.webp);">
+        <div class="container position-relative">
+            <h1>Produktai</h1>
+            <p>Kažką čia galima parašyti.</p>
+            <nav class="breadcrumbs">
+            </nav>
+        </div>
     </div><!-- End Page Title -->
 
     <!-- Portfolio Details Section -->
     <section id="portfolio-details" class="portfolio-details section">
 
-      <div>
-
-      </div>
-
+        <div class="container">
+            <p>
+            <h3>Apšvietimas:</h3></p>
+            {% for product in products %}
+            {% if product.group.name == "Apšvietimas" %}
+            <p>{{ product }}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="container">
+            <p>
+            <h3>Baldai:</h3></p>
+            {% for product in products %}
+            {% if product.group.name == "Baldai" %}
+            <p>{{ product }}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="container">
+            <p>
+            <h3>Palapinės:</h3></p>
+            {% for product in products %}
+            {% if product.group.name == "Palapinės" %}
+            <p>{{ product }}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
     </section><!-- /Portfolio Details Section -->
 
-  </main>
+</main>
 
-  <footer id="footer" class="footer dark-background">
+<footer id="footer" class="footer dark-background">
 
     <div class="container footer-top">
         <div class="row gy-4">
@@ -104,13 +128,14 @@
 
 </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<!-- Preloader -->
+<div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+<!-- Vendor JS Files -->
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'vendor/aos/aos.js' %}"></script>
