@@ -3,7 +3,7 @@ from .models import Group, Product, Status
 
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ['inv_no','product', 'due_date']
+    list_display = ['product', 'condition','due_date']
     list_filter = ['product', 'due_date']
     search_fields = ['product']
 
@@ -12,7 +12,7 @@ class StatusInline(admin.TabularInline):
     extra = 0
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'inv_no', 'status_condition']
+    list_display = ['name', 'quantity','inv_no', 'status_condition']
     list_filter = ['name', 'inv_no']
     search_fields = ['name']
     inlines = [StatusInline]
@@ -31,4 +31,4 @@ class ProductAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Group)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Status)
+admin.site.register(Status, StatusAdmin)

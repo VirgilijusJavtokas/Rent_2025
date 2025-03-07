@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}{% trans 'PRODUKTAS' %}{% endblock %}
+{% block 'name' %}<h1>Produktas</h1>
+<p>Kažką čia galima parašyti.</p>
+{% endblock %}
+{% load static %}
+
+
+{% block "content" %}
+
+
+<section id="item" class="portfolio-details section">
+
+    <div class="container">
+        <h5>{{ product }}</h5>
+        <ul class="pt-2">
+            <li><strong>Turimas kiekis: </strong> {{ product.quantity }}</li>
+            <li><strong>Aprašymas: </strong>{{ product.description }}</li>
+            <div>
+                {% if product.product_status.all %}
+                <strong>Būsenos: </strong>
+                {% for product_stat in product.product_status.all %}
+                <p>{{ product_stat }}</p>
+                {% endfor %}
+                {% else %}
+                <h5 class="mt-2">Šiuo metu nėra laisvų prekių.</h5>
+                {% endif %}
+
+            </div>
+
+        </ul>
+    </div>
+</section>
+
+</section>
+
+{% endblock %}

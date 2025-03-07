@@ -17,6 +17,7 @@ class Product(models.Model):
     description = (models.TextField(verbose_name="Aprašymas", max_length=1000, help_text='Trumpas produkto aprašymas'))
     inv_no = models.CharField(verbose_name="Invenorizacijos numeris", max_length=100, null=True, blank=True, unique=True,
                               help_text="Veskite invenorizacijos numerį")
+    quantity = models.IntegerField(verbose_name="Kiekis", null=True, blank=True, help_text="Kiekis")
     group = models. ForeignKey(to="Group", on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Produktų grupės", help_text="Parinkite kokia grupei priklauso produktas")
 
     def __str__(self):
@@ -49,5 +50,5 @@ class Status(models.Model):
         ordering = ['product']
 
     def __str__(self):
-        return f'Inv, nr.: {self.product.inv_no} - {self.product}, {self.get_condition_display()}'
+        return f'Inv. nr.: {self.product.inv_no} - {self.get_condition_display()}'
 
