@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Group, Product, Status
+from django.views import generic
+from django.core.paginator import Paginator
 
 def index(request):
     num_products = Product.objects.all().count()
@@ -15,9 +17,32 @@ def index(request):
     return render(request, 'base.html', context)
 
 def products(request):
-    products = Product.objects.all()
-    context = {'products': products}
+    all_products = Product.objects.all()
+
+    lighting_products = all_products.filter(group__name="Apšvietimas")
+    furniture_products = all_products.filter(group__name="Baldai")
+    tent_products = all_products.filter(group__name="Palapinės")
+
+    lighting_paginator = Paginator(lighting_products, 10)
+    furniture_paginator = Paginator(furniture_products, 10)
+    tent_paginator = Paginator(tent_products, 10)
+
+    lighting_page_number = request.GET.get('lighting_page', 1)
+    furniture_page_number = request.GET.get('furniture_page', 1)
+    tent_page_number = request.GET.get('tent_page', 1)
+
+    lighting_page = lighting_paginator.get_page(lighting_page_number)
+    furniture_page = furniture_paginator.get_page(furniture_page_number)
+    tent_page = tent_paginator.get_page(tent_page_number)
+
+    context = {
+        'lighting_page': lighting_page,
+        'furniture_page': furniture_page,
+        'tent_page': tent_page,
+    }
+
     return render(request, 'products.html', context)
+
 
 def product(request, product_id):
     context = {"product": Product.objects.get(pk=product_id)}

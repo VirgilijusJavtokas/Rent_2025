@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sutvarkytos nuorodos i PRODUCTS puslapi">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/about-3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/about.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/img/about.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741271730727</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja">
+      <option name="closed" value="true" />
+      <created>1741353167875</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741353167876</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,6 +188,7 @@
     <MESSAGE value="Pridetas produktu puslapis" />
     <MESSAGE value="Produktu puslapyje rodo prekes pagal grupes" />
     <MESSAGE value="Sutvarkytos nuorodos i PRODUCTS puslapi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sutvarkytos nuorodos i PRODUCTS puslapi" />
+    <MESSAGE value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
   </component>
 </project>

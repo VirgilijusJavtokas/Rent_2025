@@ -22,10 +22,14 @@
                 {% if product.product_status.all %}
                 <strong>Būsenos: </strong>
                 {% for product_stat in product.product_status.all %}
-                <p>{{ product_stat }}</p>
+                <ul>
+                    <li>{{ product_stat }}</li>
+
+                </ul>
+
                 {% endfor %}
                 {% else %}
-                <h5 class="mt-2">Šiuo metu nėra laisvų prekių.</h5>
+                <h5 class="mt-2">Šiuo metu prekių.</h5>
                 {% endif %}
 
             </div>

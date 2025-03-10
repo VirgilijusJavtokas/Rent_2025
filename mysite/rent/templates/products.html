@@ -16,11 +16,32 @@
     <div class="container">
         <p>
         <h3>Apšvietimas:</h3></p>
-        {% for product in products %}
-        {% if product.group.name == "Apšvietimas" %}
+        {% for product in lighting_page %}
         <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endif %}
         {% endfor %}
+
+        <div class="container puslapiai">
+            <nav aria-label="...">
+                {% if lighting_page.has_other_pages %}
+                <ul class="pagination pagination-sm justify-content-center">
+                    {% for i in lighting_page.paginator.page_range %}
+                    {% if lighting_page.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" style="background-color: white; color: black; border-color: black;"
+                        >{{ i }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" style="background-color: black; color: white; border-color: black;"
+                           href="?lighting_page={{ i }}#lighting">{{ i }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+
     </div>
 </section>
 
@@ -28,11 +49,32 @@
     <div class="container">
         <p>
         <h3>Baldai:</h3></p>
-        {% for product in products %}
-        {% if product.group.name == "Baldai" %}
+        {% for product in furniture_page %}
         <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endif %}
         {% endfor %}
+
+        <div class="container puslapiai">
+            <nav aria-label="...">
+                {% if furniture_page.has_other_pages %}
+                <ul class="pagination pagination-sm justify-content-center">
+                    {% for i in furniture_page.paginator.page_range %}
+                    {% if furniture_page.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" style="background-color: white; color: black; border-color: black;"
+                        >{{ i }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" style="background-color: black; color: white; border-color: black;"
+                           href="?furniture_page={{ i }}#furniture">{{ i }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+
     </div>
 </section>
 
@@ -40,12 +82,52 @@
     <div class="container">
         <p>
         <h3>Palapinės:</h3></p>
-        {% for product in products %}
-        {% if product.group.name == "Palapinės" %}
+        {% for product in tent_page %}
         <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endif %}
         {% endfor %}
+
+        <div class="container puslapiai">
+            <nav aria-label="...">
+                {% if tent_page.has_other_pages %}
+                <ul class="pagination pagination-sm justify-content-center">
+                    {% for i in tent_page.paginator.page_range %}
+                    {% if tent_page.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" style="background-color: white; color: black; border-color: black;"
+                        >{{ i }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" style="background-color: black; color: white; border-color: black;"
+                           href="?tent_page={{ i }}#tent"
+                        >{{ i }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+
     </div>
 </section>
-
 {% endblock %}
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if products.has_other_pages %}
+        <ul class="pagination pagination-sm justify-content-center">
+            {% for i in products.paginator.page_range %}
+            {% if products.number == i %}
+            <li class="page-item active">
+                <a class="page-link">{{ i }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>

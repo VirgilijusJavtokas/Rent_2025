@@ -1,5 +1,6 @@
-from django.db import models
 import uuid
+from django.db import models
+from shortuuidfield import ShortUUIDField
 
 # Create your models here.
 class Group(models.Model):
@@ -30,14 +31,16 @@ class Product(models.Model):
 
 
 class Status(models.Model):
+    uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
-    due_date = models.DateField(verbose_name="Bus prieinamas", null=True, blank=True)
+    start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
+    end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
     is_available = models.BooleanField(default=True)
 
     LOAN_STATUS = (
         ('a', 'Administruojama'),
         ('p', 'Paimta'),
-        ('g', 'Galima paimti'),
+        ('g', 'Galima rezervuoti'),
         ('r', 'Rezervuota'),
     )
 
@@ -50,5 +53,5 @@ class Status(models.Model):
         ordering = ['product']
 
     def __str__(self):
-        return f'Inv. nr.: {self.product.inv_no} - {self.get_condition_display()}'
+        return f'Nr.: {self.uuid} - {self.get_condition_display()}'
 

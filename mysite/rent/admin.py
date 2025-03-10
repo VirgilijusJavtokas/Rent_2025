@@ -3,8 +3,8 @@ from .models import Group, Product, Status
 
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ['product', 'condition','due_date']
-    list_filter = ['product', 'due_date']
+    list_display = ['product', 'uuid', 'condition','start_date', 'end_date']
+    list_filter = ['product', 'uuid', 'condition','start_date', 'end_date']
     search_fields = ['product']
 
 class StatusInline(admin.TabularInline):
