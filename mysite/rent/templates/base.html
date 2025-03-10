@@ -10,7 +10,7 @@
     {% load static %}
 
     <!-- Favicons -->
-<!--    <link href="{% static 'img/favicon.png' %}" rel="icon">-->
+    <!--    <link href="{% static 'img/favicon.png' %}" rel="icon">-->
     <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -36,7 +36,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div>
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <a href="#hero" class="logo d-flex align-items-center me-auto">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="static/img/logo.png" alt=""> -->
             <h1 class="sitename" style="margin-left: 20px;">Mėlyna zona</h1>
@@ -50,8 +50,15 @@
                 <li><a href="#features">Taisyklės</a></li>
                 <li><a href="#team">Komanda</a></li>
                 <li><a href="#contact">Kontaktai</a></li>
+
+                <form class="d-flex ms-auto" action="{% url 'search' %}" method="get">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Paieška">
+                </form>
             </ul>
+
+
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
         </nav>
     </div>
 </header>
@@ -138,7 +145,8 @@
                     <div class="stats-item d-flex align-items-center w-100 h-100">
                         <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }} data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }}
+                                  data-purecounter-duration="1"
                                   class="purecounter"></span>
                             <p>Laimingi klientai</p>
                         </div>
@@ -149,7 +157,8 @@
                     <div class="stats-item d-flex align-items-center w-100 h-100">
                         <i class="bi-list-check color-orange flex-shrink-0"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }} data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_groups }}
+                                  data-purecounter-duration="1"
                                   class="purecounter"></span>
                             <p>Produktų kategorijos</p>
                         </div>
@@ -160,7 +169,8 @@
                     <div class="stats-item d-flex align-items-center w-100 h-100">
                         <i class="bi bi-lamp color-green flex-shrink-0"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end={{ num_products }} data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end={{ num_products }}
+                                  data-purecounter-duration="1"
                                   class="purecounter"></span>
                             <p>Produktai</p>
                         </div>
@@ -223,7 +233,7 @@
                             <div class="icon">
                                 <i class="bi bi-easel"></i>
                             </div>
-                               <a href="{% url 'products' %}#furniture" class="stretched-link">
+                            <a href="{% url 'products' %}#furniture" class="stretched-link">
                                 <h3>Baldai</h3>
                             </a>
                             <p>Lauko baldai: stalai ir kėdės.</p>
@@ -240,7 +250,7 @@
                             <div class="icon">
                                 <i class="bi bi-triangle-half"></i>
                             </div>
-                               <a href="{% url 'products' %}#tent" class="stretched-link">
+                            <a href="{% url 'products' %}#tent" class="stretched-link">
                                 <h3>Palapinės</h3>
                             </a>
                             <p>Įvairių dydžių palapinės ir ne tik.</p>

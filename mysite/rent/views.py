@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Group, Product, Status
 from django.views import generic
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 def index(request):
     num_products = Product.objects.all().count()
@@ -47,3 +48,12 @@ def products(request):
 def product(request, product_id):
     context = {"product": Product.objects.get(pk=product_id)}
     return render(request, 'product.html', context)
+
+def search(request):
+    query = request.GET.get('query')
+    product_search_result = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(group__name__icontains=query))
+    context = {
+        'query': query,
+        'products': product_search_result,
+    }
+    return render(request, 'search.html', context)

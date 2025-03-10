@@ -1,0 +1,25 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}Paieškos rezultatai{% endblock %}
+{% block 'name' %}<h1>Paieškos rezultatai</h1>
+{% endblock %}
+{% load static %}
+
+
+{% block "content" %}
+
+
+<section id="ligtening" class="portfolio-details section">
+
+    <div class="container">
+        <p>
+        <h3>Produktai rasti pagal užklausą "{{ query }}"</h3></p>
+        {% for product in products %}
+        <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
+        {% endfor %}
+
+</div>
+</section>
+
+{% endblock %}
