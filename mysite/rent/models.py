@@ -20,6 +20,7 @@ class Product(models.Model):
                               help_text="Veskite invenorizacijos numerį")
     quantity = models.IntegerField(verbose_name="Kiekis", null=True, blank=True, help_text="Kiekis")
     group = models. ForeignKey(to="Group", on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Produktų grupės", help_text="Parinkite kokia grupei priklauso produktas")
+    cover = models.ImageField(verbose_name="Paveikslėlis", upload_to='covers', null=True, blank=True)
 
     def __str__(self):
         return self.name

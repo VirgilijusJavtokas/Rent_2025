@@ -9,38 +9,58 @@
 
 
 {% block "content" %}
+<section id="lightening" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Produktai</h2>
+        <p>Apšvietimas<br></p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+            {% for product in lighting_page %}
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img src="{%static 'img/lamps.jpeg' %}" class="img-fluid" alt="">
+                    </div>
+                    <div class="details position-relative">
+
+                        <a href="{% url 'product' product.pk %}" class="stretched-link">
+                            <h3>{{ product }}</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
 
-<section id="ligtening" class="portfolio-details section">
-
-    <div class="container">
-        <p>
-        <h3>Apšvietimas:</h3></p>
-        {% for product in lighting_page %}
-        <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endfor %}
-
-        <div class="container puslapiai">
-            <nav aria-label="...">
-                {% if lighting_page.has_other_pages %}
-                <ul class="pagination pagination-sm justify-content-center">
-                    {% for i in lighting_page.paginator.page_range %}
-                    {% if lighting_page.number == i %}
-                    <li class="page-item active">
-                        <a class="page-link" style="background-color: white; color: black; border-color: black;"
-                        >{{ i }}</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a class="page-link" style="background-color: black; color: white; border-color: black;"
-                           href="?lighting_page={{ i }}#lighting">{{ i }}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </nav>
+            {% endfor %}
         </div>
+    </div>
+
+    <div class="container puslapiai">
+        <nav aria-label="...">
+            {% if lighting_page.has_other_pages %}
+            <ul class="pagination pagination-sm justify-content-center">
+                {% for i in lighting_page.paginator.page_range %}
+                {% if lighting_page.number == i %}
+                <li class="page-item active">
+                    <a class="page-link" style="background-color: white; color: black; border-color: black;"
+                    >{{ i }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" style="background-color: black; color: white; border-color: black;"
+                       href="?lighting_page={{ i }}#lighting">{{ i }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </nav>
+    </div>
 
     </div>
 </section>

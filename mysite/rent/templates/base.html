@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,6 @@
     {% load static %}
 
     <!-- Favicons -->
-    <!--    <link href="{% static 'img/favicon.png' %}" rel="icon">-->
     <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -50,13 +50,10 @@
                 <li><a href="#features">Taisyklės</a></li>
                 <li><a href="#team">Komanda</a></li>
                 <li><a href="#contact">Kontaktai</a></li>
-
                 <form class="d-flex ms-auto" action="{% url 'search' %}" method="get">
                     <input class="form-control me-2" type="text" name="query" placeholder="Paieška">
                 </form>
             </ul>
-
-
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 
         </nav>
