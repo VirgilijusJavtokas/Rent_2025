@@ -38,7 +38,7 @@
         <a href="#hero" class="logo d-flex align-items-center me-auto">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="static/img/logo.png" alt=""> -->
-            <h1 class="sitename" style="margin-left: 20px;">Mėlyna zona</h1>
+            <h1 class="sitename" style="margin-left: 20px; color: #5baefc;">Mėlyna zona</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -206,7 +206,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                     <div class="service-item">
                         <div class="img">
-                            <img src="{%static 'img/lamps.jpeg' %}" class="img-fluid" alt="">
+                            <img src="{% static 'img/lamps.jpeg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="details position-relative">
                             <div class="icon">
@@ -223,7 +223,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                     <div class="service-item">
                         <div class="img">
-                            <img src="{%static 'img/furniture.jpeg' %}" class="img-fluid" alt="">
+                            <img src="{% static 'img/furniture.jpeg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="details position-relative">
                             <div class="icon">
@@ -530,10 +530,11 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="member">
-                        <div class="pic"><img src="static/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="pic"><img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
                         <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
+                            <h4>Vardenis Pavardenis</h4>
+                            <span>Pardavimų vadovas</span>
+                             <span>E-mail: info1@melynazona.lt</span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter-x"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -546,12 +547,12 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="member">
-                        <div class="pic"><img src="static/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+                        <div class="pic"><img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
                         <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
+                            <h4>vardenė Pavardenė</h4>
+                            <span>Marketingo vadovė</span>
+                            <span>E-mail: info2@melynazona.lt</span>
                             <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>
                                 <a href=""><i class="bi bi-instagram"></i></a>
                                 <a href=""><i class="bi bi-linkedin"></i></a>
@@ -661,8 +662,8 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <span class="sitename">Mėlyna zona</span>
+                <a href="#hero" class="logo d-flex align-items-center">
+                    <span class="sitename" style="color: #5baefc;">Mėlyna zona</span>
                 </a>
                 <div class="footer-contact pt-3">
                     <p>Plati gatvė 4, Kaunas, Lietuva</p>

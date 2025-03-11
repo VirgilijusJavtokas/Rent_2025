@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/cover2.jpeg" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sumazintas headeris csv faile hero2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741620355225</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Sumazintas headeris csv faile hero2">
+      <option name="closed" value="true" />
+      <created>1741680220154</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741680220154</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +232,7 @@
     <MESSAGE value="Padarytas puslapiavimas PRODUCTS.html" />
     <MESSAGE value="ideta paieska" />
     <MESSAGE value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
-    <option name="LAST_COMMIT_MESSAGE" value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
+    <MESSAGE value="Sumazintas headeris csv faile hero2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sumazintas headeris csv faile hero2" />
   </component>
 </project>

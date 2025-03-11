@@ -39,7 +39,7 @@
             {% endfor %}
         </div>
     </div>
-
+    <p></p>
     <div class="container puslapiai">
         <nav aria-label="...">
             {% if lighting_page.has_other_pages %}
@@ -65,14 +65,37 @@
     </div>
 </section>
 
-<section id="furniture" class="portfolio-details section">
-    <div class="container">
-        <p>
-        <h3>Baldai:</h3></p>
-        {% for product in furniture_page %}
-        <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endfor %}
+<section id="furniture" class="services section">
 
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Produktai</h2>
+        <p>Baldai<br></p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+            {% for product in furniture_page %}
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img src="{%static 'img/furniture.jpeg' %}" class="img-fluid" alt="">
+                    </div>
+                    <div class="details position-relative">
+
+                        <a href="{% url 'product' product.pk %}" class="stretched-link">
+                            <h3>{{ product }}</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <p></p>
+
+    <div class="container">
         <div class="container puslapiai">
             <nav aria-label="...">
                 {% if furniture_page.has_other_pages %}
@@ -98,13 +121,35 @@
     </div>
 </section>
 
-<section id="tent" class="portfolio-details section">
-    <div class="container">
-        <p>
-        <h3>Palapinės:</h3></p>
-        {% for product in tent_page %}
-        <a href="{% url 'product' product.pk %}"><p>{{ product }}</p></a>
-        {% endfor %}
+<section id="tent" class="services section">
+
+        <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Produktai</h2>
+        <p>Palapinės<br></p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+            {% for product in tent_page %}
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img src="{%static 'img/tent.jpeg' %}" class="img-fluid" alt="">
+                    </div>
+                    <div class="details position-relative">
+
+                        <a href="{% url 'product' product.pk %}" class="stretched-link">
+                            <h3>{{ product }}</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <p></p>
 
         <div class="container puslapiai">
             <nav aria-label="...">
