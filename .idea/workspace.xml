@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi">
+      <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/cover2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,13 +53,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/virgilijusjavtokas/PycharmProjects/rent_20250221/mysite/rent/templates"
+    "last_opened_file_path": "/Users/virgilijusjavtokas/PycharmProjects/rent_20250221/mysite/rent/static/img",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mysite/rent/templates" />
       <recent name="$PROJECT_DIR$/mysite/rent/static/img" />
+      <recent name="$PROJECT_DIR$/mysite/rent/templates" />
       <recent name="$PROJECT_DIR$/mysite/rent/static" />
       <recent name="$PROJECT_DIR$/mysite/rent" />
       <recent name="$PROJECT_DIR$/mysite/rent/static/css" />
@@ -174,7 +181,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741353167876</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Padarytas puslapiavimas PRODUCTS.html">
+      <option name="closed" value="true" />
+      <created>1741610870778</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741610870778</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ideta paieska">
+      <option name="closed" value="true" />
+      <created>1741615940851</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1741615940851</updated>
+    </task>
+    <task id="LOCAL-00015" summary="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi">
+      <option name="closed" value="true" />
+      <created>1741620355225</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1741620355225</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +220,9 @@
     <MESSAGE value="Produktu puslapyje rodo prekes pagal grupes" />
     <MESSAGE value="Sutvarkytos nuorodos i PRODUCTS puslapi" />
     <MESSAGE value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
+    <MESSAGE value="Padarytas puslapiavimas PRODUCTS.html" />
+    <MESSAGE value="ideta paieska" />
+    <MESSAGE value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
+    <option name="LAST_COMMIT_MESSAGE" value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
   </component>
 </project>
