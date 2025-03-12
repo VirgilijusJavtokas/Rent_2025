@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sutvarkytas footer ir header su melyna spalva">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-    </list>
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Admin puslapyje galima priskirti paveiksliukus" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741697063358</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Admin puslapyje galima priskirti paveiksliukus">
+      <option name="closed" value="true" />
+      <created>1741774127642</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1741774127642</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -240,6 +243,7 @@
     <MESSAGE value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
     <MESSAGE value="Sumazintas headeris csv faile hero2" />
     <MESSAGE value="Sutvarkytas footer ir header su melyna spalva" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sutvarkytas footer ir header su melyna spalva" />
+    <MESSAGE value="Admin puslapyje galima priskirti paveiksliukus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin puslapyje galima priskirti paveiksliukus" />
   </component>
 </project>

@@ -1,10 +1,7 @@
 {% extends "base2.html" %}
 {% load i18n %}
 
-{% block 'title' %}{% trans 'PRODUKTAS' %}{% endblock %}
-{% block 'name' %}<h1>Produktas</h1>
-<p>Kažką čia galima parašyti.</p>
-{% endblock %}
+{% block 'title' %}Prekė{% endblock %}
 {% load static %}
 
 
@@ -21,7 +18,7 @@
 
         {% endif %}
         <p></p>
-        <h5><strong>{{ product }}</strong></h5>
+        <h3><strong>{{ product }}</strong></h3>
         <ul class="pt-2">
             <li><strong>Turimas kiekis: </strong> {{ product.quantity }}</li>
             <li><strong>Aprašymas: </strong>{{ product.description }}</li>

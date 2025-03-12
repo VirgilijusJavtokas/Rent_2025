@@ -24,9 +24,9 @@ def products(request):
     furniture_products = all_products.filter(group__name="Baldai")
     tent_products = all_products.filter(group__name="Palapinės")
 
-    lighting_paginator = Paginator(lighting_products, 2)
-    furniture_paginator = Paginator(furniture_products, 2)
-    tent_paginator = Paginator(tent_products, 2)
+    lighting_paginator = Paginator(lighting_products, 3)
+    furniture_paginator = Paginator(furniture_products, 3)
+    tent_paginator = Paginator(tent_products, 3)
 
     lighting_page_number = request.GET.get('lighting_page', 1)
     furniture_page_number = request.GET.get('furniture_page', 1)
