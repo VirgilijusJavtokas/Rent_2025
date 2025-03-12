@@ -14,20 +14,27 @@
 <section id="item" class="services section">
 
     <div class="container">
-        <h5>{{ product }}</h5>
+         {% if product.cover %}
+          <div class="img">
+    <img src="{{ product.cover.url }}" class="img-fluid" alt="" style="max-width: 400px; height: auto;">
+</div>
+
+        {% endif %}
+        <p></p>
+        <h5><strong>{{ product }}</strong></h5>
         <ul class="pt-2">
             <li><strong>Turimas kiekis: </strong> {{ product.quantity }}</li>
             <li><strong>Aprašymas: </strong>{{ product.description }}</li>
             <div>
                 {% if product.product_status.all %}
-                <strong>Būsenos: </strong>
+                <strong>Prekės: </strong>
+                <ol>
                 {% for product_stat in product.product_status.all %}
-                <ul>
                     <li>{{ product_stat }}</li>
+                    {% endfor %}
+                </ol>
 
-                </ul>
 
-                {% endfor %}
                 {% else %}
                 <h5 class="mt-2">Šiuo metu prekių neturime.</h5>
                 {% endif %}

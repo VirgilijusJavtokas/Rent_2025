@@ -39,9 +39,9 @@ class Status(models.Model):
     is_available = models.BooleanField(default=True)
 
     LOAN_STATUS = (
-        ('a', 'Administruojama'),
-        ('p', 'Paimta'),
-        ('g', 'Galima rezervuoti'),
+        ('n', 'Laikinai neprieinama'),
+        ('i', 'Išnuomota. Tikrinti galimas dienas: '),
+        ('g', 'Galima nuomotis. Tikrinti prieinamumą ateityje: '),
         ('r', 'Rezervuota'),
     )
 
@@ -54,5 +54,5 @@ class Status(models.Model):
         ordering = ['product']
 
     def __str__(self):
-        return f'Nr.: {self.uuid} - {self.get_condition_display()}'
+        return self.get_condition_display()
 
