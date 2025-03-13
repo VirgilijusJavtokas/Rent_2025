@@ -4,18 +4,38 @@
 {% block 'title' %}Prekė{% endblock %}
 {% load static %}
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/moment.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}" />
+<script src="{% static 'js/daterangepicker.js' %}"></script>
+
+
+
+
+
+<script>
+$(document).ready(function() {
+    $('.datepicker').daterangepicker({
+        locale: {
+            format: 'YYYY-MM-DD'
+        },
+        autoApply: true
+    });
+});
+</script>
+
+
+
 
 {% block "content" %}
 
 
 <section id="item" class="services section">
-
     <div class="container">
-         {% if product.cover %}
-          <div class="img">
-    <img src="{{ product.cover.url }}" class="img-fluid" alt="" style="max-width: 400px; height: auto;">
-</div>
-
+        {% if product.cover %}
+        <div class="img">
+            <img src="{{ product.cover.url }}" class="img-fluid" alt="" style="max-width: 400px; height: auto;">
+        </div>
         {% endif %}
         <p></p>
         <h3><strong>{{ product }}</strong></h3>
@@ -26,16 +46,25 @@
                 {% if product.product_status.all %}
                 <strong>Prekės: </strong>
                 <ol>
-                {% for product_stat in product.product_status.all %}
-                    <li>{{ product_stat }}</li>
+                    {% for product_stat in product.product_status.all %}
+                    <li>
+                        <div class="product-line"
+                             style="display: flex; gap: 10px;">
+                            {{ product_stat }}
+                            <p>Tikrinti datas: </p>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">Rezervuoti</button>
+                            </form>
+                        </div>
+                    </li>
                     {% endfor %}
                 </ol>
-
 
                 {% else %}
                 <h5 class="mt-2">Šiuo metu prekių neturime.</h5>
                 {% endif %}
-
             </div>
 
         </ul>
@@ -45,3 +74,28 @@
 </section>
 
 {% endblock %}
+
+<!-- Būtinos bibliotekos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.1/daterangepicker.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.1/daterangepicker.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    console.log("Script loaded");  // Patikrinkime, ar skriptas išvis pasileidžia
+
+    $('input[name="start_date"], input[name="end_date"]').daterangepicker({
+        locale: {
+            format: 'YYYY-MM-DD'
+        },
+        autoApply: true,
+        singleDatePicker: true
+    });
+
+    // Patikrinkime, ar „DateRangePicker“ buvo pritaikytas
+    $('input[name="start_date"], input[name="end_date"]').on('apply.daterangepicker', function(ev, picker) {
+        console.log("Data pasirinkta: " + picker.startDate.format('YYYY-MM-DD'));
+    });
+});
+</script>

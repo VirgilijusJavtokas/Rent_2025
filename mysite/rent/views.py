@@ -1,9 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Group, Product, Status
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, JsonResponse
+from .models import Group, Product, Status, Reservation
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
+from .forms import ReservationForm
 
 def index(request):
     num_products = Product.objects.all().count()
@@ -57,3 +59,40 @@ def search(request):
         'products': product_search_result,
     }
     return render(request, 'search.html', context)
+
+
+# @login_required
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    reservations = Reservation.objects.filter(product=product)
+
+    if request.method == "POST":
+        print("Gauta POST užklausa:", request.POST)  # Patikrinsime, ar duomenys ateina
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            reservation.product = product
+            reservation.user = request.user
+            reservation.save()
+            return JsonResponse({'status': 'success', 'message': 'Rezervacija sukurta!'})  # AJAX grįžtamasis ryšys
+        else:
+            print("Forma neteisinga:", form.errors)
+            return JsonResponse({'status': 'error', 'errors': form.errors})
+
+    else:
+        form = ReservationForm()
+
+    return render(request, 'product.html', {
+        'product': product,
+        'reservations': reservations,
+        'form': form,
+    })
+
+
+class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
+    model = Status
+    template_name = "my_products.html"
+    context_object_name = "orders"
+
+    def get_queryset(self):
+        return Status.objects.filter(customer=self.request.user)

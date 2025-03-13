@@ -3,9 +3,17 @@ from .models import Group, Product, Status
 
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ['product', 'uuid', 'condition','start_date', 'end_date']
-    list_filter = ['product', 'uuid', 'condition','start_date', 'end_date']
+    list_display = ['product', 'uuid', 'customer', 'condition', 'due_back']
+    list_filter = ['product', 'uuid', 'condition']
     search_fields = ['product']
+    list_editable = ['customer', 'condition', 'due_back']
+    ordering = ['due_back']
+    date_hierarchy = 'due_back'
+    fieldsets = [
+        ('General', {'fields': ['product', 'uuid']}),
+        ('Availability', {'fields': ['customer','condition', 'due_back']}),
+    ]
+
 
 class StatusInline(admin.TabularInline):
     model = Status

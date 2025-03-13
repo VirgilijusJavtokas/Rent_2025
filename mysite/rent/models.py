@@ -1,6 +1,8 @@
 import uuid
 from django.db import models
 from shortuuidfield import ShortUUIDField
+from django.contrib.auth.models import User
+from datetime import date
 
 # Create your models here.
 class Group(models.Model):
@@ -33,15 +35,15 @@ class Product(models.Model):
 
 class Status(models.Model):
     uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
+    due_back = models.DateField(verbose_name="Bus prieinama nuo", null=True, blank=True)
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
-    start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
-    end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
     is_available = models.BooleanField(default=True)
+    customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")
 
     LOAN_STATUS = (
         ('n', 'Laikinai neprieinama'),
-        ('i', 'Išnuomota. Tikrinti galimas dienas: '),
-        ('g', 'Galima nuomotis. Tikrinti prieinamumą ateityje: '),
+        ('i', 'Išnuomota'),
+        ('g', 'Prekę turime sandėlyje.'),
         ('r', 'Rezervuota'),
     )
 
@@ -53,6 +55,17 @@ class Status(models.Model):
         verbose_name_plural = "Produktų būsenos"
         ordering = ['product']
 
+    def is_overdue(self):
+        return self.due_back and date.today() > self.due_back
+
     def __str__(self):
         return self.get_condition_display()
+
+class Reservation(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations')
+    start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
+    end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name} ({self.start_date} - {self.end_date})"
 
