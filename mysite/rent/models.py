@@ -1,8 +1,9 @@
-import uuid
+
 from django.db import models
 from shortuuidfield import ShortUUIDField
 from django.contrib.auth.models import User
 from datetime import date
+from tinymce.models import HTMLField
 
 # Create your models here.
 class Group(models.Model):
@@ -17,7 +18,7 @@ class Group(models.Model):
 
 class Product(models.Model):
     name = models.CharField(verbose_name="Pavadinimas", max_length=100)
-    description = (models.TextField(verbose_name="Aprašymas", max_length=1000, help_text='Trumpas produkto aprašymas'))
+    description = HTMLField(verbose_name="Aprašymas", max_length=1000, help_text='Trumpas produkto aprašymas', null=True, blank=True, default="")
     inv_no = models.CharField(verbose_name="Invenorizacijos numeris", max_length=100, null=True, blank=True, unique=True,
                               help_text="Veskite invenorizacijos numerį")
     quantity = models.IntegerField(verbose_name="Kiekis", null=True, blank=True, help_text="Kiekis")
@@ -56,11 +57,8 @@ class Status(models.Model):
         verbose_name_plural = "Produktų būsenos"
         ordering = ['product']
 
-    def is_overdue(self):
-        return self.due_back and date.today() > self.due_back
-
     def __str__(self):
-        return f"{self.uuid} - {self.customer} - ({self.get_condition_display()})"
+        return f"{self.uuid} - {self.get_condition_display()}"
 
 
 class Reservation(models.Model):
@@ -73,6 +71,9 @@ class Reservation(models.Model):
         verbose_name = "Rezervacija"
         verbose_name_plural = "Rezervacijos"
         ordering = ['start_date']
+
+    def is_overdue(self):
+        return self.end_date and date.today() > self.end_date
 
     def __str__(self):
         status_uuid = self.status.uuid if self.status else "No Status"

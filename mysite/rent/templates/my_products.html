@@ -13,7 +13,7 @@
         <p></p>
         <p><strong>Prekė:</strong> {{ order.uuid|slice:":6" }} - {{ order.product.name }}</p>
         {% for reservation in order.reservations_status.all %}
-        <p><strong>Grąžinimo data:</strong> {{ reservation.end_date }}</p>
+        <p class="{% if reservation.is_overdue %}text-danger{% endif %}"><strong>Grąžinimo data:</strong> {{ reservation.end_date }}</p>
         {% endfor %}
         <hr/>
         {% endfor %}

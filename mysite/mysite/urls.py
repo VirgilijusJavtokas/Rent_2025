@@ -8,6 +8,7 @@ urlpatterns = [
     path('rent/', include('rent.urls')),
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='rent/', permanent=True)),
+    path('tinymce/', include('tinymce.urls')),
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 
