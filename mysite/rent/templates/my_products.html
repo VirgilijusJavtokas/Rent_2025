@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}Mano užsakymai{% endblock %}
+{% load static %}
+
+
+{% block "content" %}
+<section id="my_products" class="services section">
+    <div class="container">
+     <h2>Mano išsinuomotos prekės:</h2>
+    {% for order in orders %}
+        <p></p>
+        <p><strong>Prekė:</strong> {{ order.uuid|slice:":6" }} - {{ order.product.name }}</p>
+        <p><strong>Gražinimo data:</strong> {{ order.reservations.end_date }}</p>
+          <hr/>
+{% endfor %}
+    </div>
+
+</section>
+
+</section>
+
+{% endblock %}
+
+<

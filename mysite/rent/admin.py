@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Group, Product, Status
+from .models import Group, Product, Status, Reservation
 
 
 class StatusAdmin(admin.ModelAdmin):
@@ -33,10 +33,17 @@ class ProductAdmin(admin.ModelAdmin):
 
     status_condition.short_description = 'Būsena'
 
-
+class ReservationAdmin(admin.ModelAdmin):
+    list_display = ['product', 'start_date', 'end_date']
+    list_editable = ['start_date', 'end_date']
+    fieldsets = [
+        ('General', {'fields': ['product']}),
+        ('Availability', {'fields': ['start_date', 'end_date']}),
+    ]
 
 
 # Register your models here.
 admin.site.register(Group)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Status, StatusAdmin)
+admin.site.register(Reservation, ReservationAdmin)

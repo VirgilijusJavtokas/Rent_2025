@@ -39,6 +39,7 @@ class Status(models.Model):
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
     is_available = models.BooleanField(default=True)
     customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")
+    reservations = models.ForeignKey(to="Reservation", on_delete=models.SET_NULL, null=True, blank=True, related_name="status_reservations")
 
     LOAN_STATUS = (
         ('n', 'Laikinai neprieinama'),
@@ -59,13 +60,15 @@ class Status(models.Model):
         return self.due_back and date.today() > self.due_back
 
     def __str__(self):
-        return self.get_condition_display()
+        return f"{self.uuid} - {self.customer} - ({self.get_condition_display()})"
+
 
 class Reservation(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations_product',null=True, blank=True)
+    # status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='reservations_status',null=True, blank=True)
     start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
     end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.product.name} ({self.start_date} - {self.end_date})"
+        return f" - {self.product.name} ({self.start_date} - {self.end_date})"
 
