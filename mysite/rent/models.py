@@ -64,11 +64,18 @@ class Status(models.Model):
 
 
 class Reservation(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations_product',null=True, blank=True)
-    # status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='reservations_status',null=True, blank=True)
+    # product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations_product',null=True, blank=True)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='reservations_status',null=True, blank=True)
     start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
     end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
 
+    class Meta:
+        verbose_name = "Rezervacija"
+        verbose_name_plural = "Rezervacijos"
+        ordering = ['start_date']
+
     def __str__(self):
-        return f" - {self.product.name} ({self.start_date} - {self.end_date})"
+        status_uuid = self.status.uuid if self.status else "No Status"
+        return f"Status UUID: {status_uuid} ({self.start_date} - {self.end_date})"
+
 

@@ -1,19 +1,20 @@
 from django.contrib import admin
 from .models import Group, Product, Status, Reservation
 
+class ReservationInline(admin.TabularInline):
+    model = Reservation
+    extra = 0
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ['product', 'uuid', 'customer', 'condition', 'due_back']
+    list_display = ['product', 'uuid', 'customer', 'condition']
     list_filter = ['product', 'uuid', 'condition']
-    search_fields = ['product']
-    list_editable = ['customer', 'condition', 'due_back']
-    ordering = ['due_back']
-    date_hierarchy = 'due_back'
+    search_fields = ['product__name', 'uuid', 'customer__username']
+    list_editable = ['customer', 'condition']
     fieldsets = [
-        ('General', {'fields': ['product', 'uuid']}),
-        ('Availability', {'fields': ['customer','condition', 'due_back']}),
+        ('General', {'fields': ['product']}),
+        ('Availability', {'fields': ['customer','condition']}),
     ]
-
+    inlines = [ReservationInline]
 
 class StatusInline(admin.TabularInline):
     model = Status
@@ -33,13 +34,15 @@ class ProductAdmin(admin.ModelAdmin):
 
     status_condition.short_description = 'Būsena'
 
+
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ['product', 'start_date', 'end_date']
+    list_display = ['status_uuid', 'start_date', 'end_date']
     list_editable = ['start_date', 'end_date']
-    fieldsets = [
-        ('General', {'fields': ['product']}),
-        ('Availability', {'fields': ['start_date', 'end_date']}),
-    ]
+    list_display_links = ['status_uuid']
+
+    def status_uuid(self, obj):
+        return obj.status.uuid if obj.status else "No Status"
+    status_uuid.short_description = "Status UUID"
 
 
 # Register your models here.
