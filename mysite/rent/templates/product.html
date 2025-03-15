@@ -39,9 +39,10 @@
             <li><strong>Aprašymas: </strong>{{ product.description | safe}}</li>
 
             <li><strong>Būsenos: </strong>
+                <p></p>
                 {% if product.product_status.all %}
                 {% for status in product.product_status.all %}
-                {{ status }}
+                <p>{{ status }}</p>
                 {% endfor %}
                 {% else %}
                 Šiuo metu neturime šios prekės

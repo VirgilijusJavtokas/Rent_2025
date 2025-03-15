@@ -48,7 +48,8 @@ def products(request):
 
 
 def product(request, product_id):
-    context = {"product": Product.objects.get(pk=product_id)}
+    context = {"product": Product.objects.prefetch_related('product_status').get(id=product_id)
+}
     return render(request, 'product.html', context)
 
 def search(request):

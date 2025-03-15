@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="mano uzsakymuose rodo grazinimo datas">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Kol kas product.html rodo tik viena busena">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741961626099</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Kol kas product.html rodo tik viena busena">
+      <option name="closed" value="true" />
+      <created>1741966323482</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1741966323482</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -315,6 +319,7 @@
     <MESSAGE value="atstatytas normalus veikimas" />
     <MESSAGE value="Mano uzsakymuose rodo grazinimo data, bet reikia sutvarkyti ADMIN kaip pasirinkti rezervacijas" />
     <MESSAGE value="mano uzsakymuose rodo grazinimo datas" />
-    <option name="LAST_COMMIT_MESSAGE" value="mano uzsakymuose rodo grazinimo datas" />
+    <MESSAGE value="Kol kas product.html rodo tik viena busena" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kol kas product.html rodo tik viena busena" />
   </component>
 </project>
