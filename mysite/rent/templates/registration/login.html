@@ -10,7 +10,14 @@
 
 
 <section id="login" class="contact section">
-    <div class="container">
+
+     <div class="container section-title" data-aos="fade-up">
+        <h2>Prisijungimas</h2>
+        <p>Prisijungimas</p>
+        <p></p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
         {% if form.errors %}
         <p>Prisijungimo klaida, bandykite dar kartą!</p>
         {% endif %}
@@ -33,7 +40,8 @@
                     <td>{{ form.password }}</td>
                 </tr>
             </table>
-            <input type="submit" class="styled-button" value="Prisijungti"/>
+            <p></p>
+            <input type="submit"  class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" value="Prisijungti"/>
             <input type="hidden" name="next" value="{{ next }}"/>
         </form>
 <p></p>

@@ -7,7 +7,6 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .forms import ReservationForm
-from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import password_validation
