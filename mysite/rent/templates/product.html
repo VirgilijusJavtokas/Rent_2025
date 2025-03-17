@@ -10,40 +10,42 @@
 <script src="{% static 'js/daterangepicker.js' %}"></script>
 
 
-<script>
-    $(document).ready(function() {
-        $('.datepicker').daterangepicker({
-            locale: {
-                format: 'YYYY-MM-DD'
-            },
-            autoApply: true
-        });
-    });
-</script>
-
-
 {% block "content" %}
+<section id="product_img" class="services section">
 
-
-<section id="item" class="about section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
+        <div class="row gy-5">
 
-
-
-        {% if product.cover %}
-        <div class="img">
-            <img src="{{ product.cover.url }}" class="img-fluid" alt="" style="max-width: 400px; height: auto;">
+            <div class="col-xl-5 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        {% if product.cover %}
+                        <div class="img">
+                            <img src="{{ product.cover.url }}" class="img-fluid" alt=""
+                                 style="max-width: 600px; height: auto;">
+                        </div>
+                        {% endif %}
+                        <div class="details2">
+                            <h2>{{ product }}</h2>
+                        </div>
+                    </div>
+                </div><!-- End Service Item -->
+            </div>
         </div>
-        {% endif %}
-        <p></p>
-        <h3>{{ product }}</h3>
+    </div>
+</section>
+
+<section id="product_description" class="about section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
             <div class="content ps-0 ps-lg-5">
                 <ul class="pt-2">
                     <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
                     </li>
-                    <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong>{{ product.description | safe}}</li>
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong> {{ product.description | safe }}
+                    </li>
 
                     <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
                         <p></p>
@@ -52,6 +54,7 @@
                         <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger
            {% elif status.condition == 'g' %}text-success
            {% endif %}">{{ status }}</p>
+                        <hr/>
 
                         {% endfor %}
                         {% else %}
@@ -66,6 +69,5 @@
     </div>
 </section>
 
-</section>
 
 {% endblock %}

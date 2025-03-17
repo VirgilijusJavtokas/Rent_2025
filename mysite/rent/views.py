@@ -7,6 +7,10 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .forms import ReservationForm
+from django.contrib.auth.forms import User
+from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
+from django.contrib.auth import password_validation
 
 def index(request):
     num_products = Product.objects.all().count()
@@ -64,35 +68,6 @@ def search(request):
     }
     return render(request, 'search.html', context)
 
-
-# @login_required
-def product_detail(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    reservations = Reservation.objects.filter(product=product)
-
-    if request.method == "POST":
-        print("Gauta POST užklausa:", request.POST)  # Patikrinsime, ar duomenys ateina
-        form = ReservationForm(request.POST)
-        if form.is_valid():
-            reservation = form.save(commit=False)
-            reservation.product = product
-            reservation.user = request.user
-            reservation.save()
-            return JsonResponse({'status': 'success', 'message': 'Rezervacija sukurta!'})  # AJAX grįžtamasis ryšys
-        else:
-            print("Forma neteisinga:", form.errors)
-            return JsonResponse({'status': 'error', 'errors': form.errors})
-
-    else:
-        form = ReservationForm()
-
-    return render(request, 'product.html', {
-        'product': product,
-        'reservations': reservations,
-        'form': form,
-    })
-
-
 class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
     model = Status
     template_name = "my_products.html"
@@ -100,3 +75,39 @@ class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Status.objects.filter(customer=self.request.user)
+
+@csrf_protect
+def register(request):
+    if request.method == "POST":
+        # pasiimame reikšmes iš registracijos formos
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        # tikriname, ar sutampa slaptažodžiai
+        if password == password2:
+            # tikriname, ar neužimtas username
+            if User.objects.filter(username=username).exists():
+                messages.error(request, f'Vartotojo vardas {username} užimtas!')
+                return redirect('register')
+            else:
+                # tikriname, ar nėra tokio pat email
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
+                    return redirect('register')
+                else:
+                    try:
+                        password_validation.validate_password(password)
+                    except password_validation.ValidationError as e:
+                        for error in e:
+                            messages.error(request, error)
+                        return redirect('register')
+
+                    # jeigu viskas tvarkoje, sukuriame naują vartotoją
+                    User.objects.create_user(username=username, email=email, password=password)
+                    messages.info(request, f'Vartotojas {username} užregistruotas!')
+                    return redirect('login')
+        else:
+            messages.error(request, 'Slaptažodžiai nesutampa!')
+            return redirect('register')
+    return render(request, 'register.html')
