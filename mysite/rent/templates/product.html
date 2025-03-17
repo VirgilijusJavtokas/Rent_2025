@@ -25,35 +25,44 @@
 {% block "content" %}
 
 
-<section id="item" class="services section">
-    <div class="container">
+<section id="item" class="about section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+
+
+
         {% if product.cover %}
         <div class="img">
             <img src="{{ product.cover.url }}" class="img-fluid" alt="" style="max-width: 400px; height: auto;">
         </div>
         {% endif %}
         <p></p>
-        <h3><strong>{{ product }}</strong></h3>
-        <ul class="pt-2">
-            <li><strong>Turimas kiekis: </strong> {{ product.quantity }}</li>
-            <li><strong>Aprašymas: </strong>{{ product.description | safe}}</li>
+        <h3>{{ product }}</h3>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+                <ul class="pt-2">
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
+                    </li>
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong>{{ product.description | safe}}</li>
 
-            <li><strong>Būsenos: </strong>
-                <p></p>
-                {% if product.product_status.all %}
-                {% for status in product.product_status.all %}
-                <p>{{ status }}</p>
-                {% endfor %}
-                {% else %}
-                Šiuo metu neturime šios prekės
-                {% endif %}
-            </li>
-            <div>
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
+                        <p></p>
+                        {% if product.product_status.all %}
+                        {% for status in product.product_status.all %}
+                        <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger
+           {% elif status.condition == 'g' %}text-success
+           {% endif %}">{{ status }}</p>
+
+                        {% endfor %}
+                        {% else %}
+                        <p class="text-danger">Šiuo metu neturime šios prekės</p>
+                        {% endif %}
+                    </li>
 
 
+                </ul>
             </div>
-
-        </ul>
+        </div>
     </div>
 </section>
 

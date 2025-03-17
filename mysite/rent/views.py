@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Group, Product, Status, Reservation
@@ -9,13 +10,15 @@ from .forms import ReservationForm
 
 def index(request):
     num_products = Product.objects.all().count()
-    num_status = Status.objects.all().count()
     num_groups = Group.objects.all().count()
+    num_status = Status.objects.all().count()
+    num_users = User.objects.all().count()
 
     context = {
         'num_products': num_products,
         'num_status': num_status,
         'num_groups': num_groups,
+        'num_users': num_users,
     }
     return render(request, 'base.html', context)
 

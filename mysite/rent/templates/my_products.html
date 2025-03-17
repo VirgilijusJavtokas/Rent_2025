@@ -7,15 +7,21 @@
 
 {% block "content" %}
 <section id="my_products" class="services section">
-    <div class="container">
-        <h2>Mano išsinuomotos prekės:</h2>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="container section-title" data-aos="fade-up">
+            <h2>Mano užsakymai</h2>
+            <p>Mano išsinuomotos prekės<br></p>
+        </div>
+
+         <hr style="border: none; height: 2px; background-color: #ff4a17;" />
         {% for order in orders %}
         <p></p>
         <p><strong>Prekė:</strong> {{ order.uuid|slice:":6" }} - {{ order.product.name }}</p>
         {% for reservation in order.reservations_status.all %}
         <p class="{% if reservation.is_overdue %}text-danger{% endif %}"><strong>Grąžinimo data:</strong> {{ reservation.end_date }}</p>
         {% endfor %}
-        <hr/>
+        <hr style="border: none; height: 2px; background-color: #ff4a17;" />
         {% endfor %}
     </div>
 

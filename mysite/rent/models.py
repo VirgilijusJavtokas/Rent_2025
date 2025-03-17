@@ -58,7 +58,7 @@ class Status(models.Model):
         ordering = ['product']
 
     def __str__(self):
-        return f"{self.uuid} - {self.get_condition_display()}"
+        return f"{str(self.uuid)[:6]} - {self.get_condition_display()}"
 
 
 class Reservation(models.Model):
