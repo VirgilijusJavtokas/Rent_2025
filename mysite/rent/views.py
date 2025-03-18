@@ -1,7 +1,6 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
 from .models import Group, Product, Status
 from django.views import generic
 from django.core.paginator import Paginator
@@ -75,6 +74,16 @@ class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Status.objects.filter(customer=self.request.user)
+
+
+class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+     model = Status
+     template_name = "statuses.html"
+     context_object_name = "statuses"
+
+     def test_func(self):
+         return self.request.user.profile.is_employee
+
 
 @csrf_protect
 def register(request):

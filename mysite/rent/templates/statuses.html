@@ -1,0 +1,32 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}Nuomos prekės{% endblock %}
+{% load static %}
+
+
+{% block "content" %}
+<section id="my_products" class="services section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="container section-title" data-aos="fade-up">
+            <h2>Prekės</h2>
+            <p>Nuomos prekių sąrašas<br></p>
+        </div>
+
+         <hr style="border: none; height: 2px; background-color: #ff4a17;" />
+        {% for status in statuses %}
+        <p></p>
+        <p class="{% if status.condition == 'i' %}text-danger{% elif status.condition == 'g' %}text-success{% endif %}"><strong>Prekė:</strong> {{ status.uuid|slice:":6" }} - {{ status.product.name }} - {{ status.get_condition_display }}</p>
+
+        <hr style="border: none; height: 2px; background-color: #ff4a17;" />
+        {% endfor %}
+    </div>
+
+</section>
+
+</section>
+
+{% endblock %}
+
+<

@@ -11,6 +11,7 @@ from PIL import Image, ImageOps, ImageDraw
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.ImageField(default="default.png", upload_to="profile_pics")
+    is_employee = models.BooleanField(verbose_name="Ar darbuotojas", default=False)
 
     def __str__(self):
         return f"{self.user.username} profilis"
@@ -31,14 +32,6 @@ class Profile(models.Model):
         img = img.convert("RGBA")
         img.putalpha(mask)
         img.save(self.photo.path, format='PNG')
-
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-    #     img = Image.open(self.photo.path)
-    #     if img.height > 300 or img.width > 300:
-    #         output_size = (300, 300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.photo.path)
 
     class Meta:
         verbose_name = "Profilis"
@@ -75,7 +68,7 @@ class Product(models.Model):
 
 class Status(models.Model):
     uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
-    due_back = models.DateField(verbose_name="Bus prieinama nuo", null=True, blank=True)
+    # due_back = models.DateField(verbose_name="Bus prieinama nuo", null=True, blank=True)
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
     is_available = models.BooleanField(default=True)
     customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")

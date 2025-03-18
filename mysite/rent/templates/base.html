@@ -60,6 +60,9 @@
                     </svg>
                     {{ user.get_username }}</a></li>
                 <li><a href="{% url 'myproducts' %}">Mano užsakymai</a></li>
+                {% if user.profile.is_employee %}
+                <li><a href="{% url 'statuses' %}">Būklės</a></li>
+                {% endif %}
                 <li class="nav-item">
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
