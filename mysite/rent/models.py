@@ -4,7 +4,8 @@ from shortuuidfield import ShortUUIDField
 from django.contrib.auth.models import User
 from datetime import date
 from tinymce.models import HTMLField
-from PIL import Image
+from PIL import Image, ImageOps, ImageDraw
+
 
 # Create your models here.
 class Profile(models.Model):
@@ -17,10 +18,27 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.photo.path)
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.photo.path)
+
+        if img.height != img.width:
+            min_dimension = min(img.height, img.width)
+            img = ImageOps.fit(img, (min_dimension, min_dimension))
+
+        output_size = (300, 300)
+        img = img.resize(output_size)
+        mask = Image.new("L", output_size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0) + output_size, fill=255)
+        img = img.convert("RGBA")
+        img.putalpha(mask)
+        img.save(self.photo.path, format='PNG')
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     img = Image.open(self.photo.path)
+    #     if img.height > 300 or img.width > 300:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.photo.path)
 
     class Meta:
         verbose_name = "Profilis"
