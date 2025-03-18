@@ -1,0 +1,40 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}Profilis{% endblock %}
+
+{% load static %}
+
+
+{% block "content" %}
+<section id="registration" class="contact section">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Vartotojo</h2>
+        <p>Profilis</p>
+    </div>
+
+    <div class="container register" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="content-section">
+            <img class="rounded-circle account-img" src="{{ user.profile.photo.url }}">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <p class="text-secondary">Vardas: {{ user.first_name }}</p>
+            <p class="text-secondary">Pavardė: {{ user.last_name }}</p>
+            <form method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="border-bottom mb-4">Profilio info</legend>
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Atnaujinti</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

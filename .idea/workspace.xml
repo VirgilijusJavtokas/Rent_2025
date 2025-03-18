@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prideta vartotojo registracija">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="sutvarkytas login.html ir register.html dizainai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,11 +314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742215397449</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="sutvarkytas login.html ir register.html dizainai">
+      <option name="closed" value="true" />
+      <created>1742218898846</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1742218898846</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Atnaujinti modeliai, pridetas Warehouse modelis" />
     <MESSAGE value="Pradetas kurti dizainas - Pirmas puslapis" />
     <MESSAGE value="base.htmi: Prideta nuotaruka vietoj ikonos" />
     <MESSAGE value="Veikia BASE.htmil su dizainu" />
@@ -345,7 +350,8 @@
     <MESSAGE value="Product.html rodo ir visas prekes busenas" />
     <MESSAGE value="Vizualiai sutvarkytas Mano uzsakymai puslapis" />
     <MESSAGE value="Prideta vartotojo registracija" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prideta vartotojo registracija" />
+    <MESSAGE value="sutvarkytas login.html ir register.html dizainai" />
+    <option name="LAST_COMMIT_MESSAGE" value="sutvarkytas login.html ir register.html dizainai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

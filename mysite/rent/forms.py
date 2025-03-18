@@ -1,11 +1,20 @@
+from .models import Profile
 from django import forms
-from .models import Reservation
+from django.contrib.auth.models import User
 
-class ReservationForm(forms.ModelForm):
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
     class Meta:
-        model = Reservation
-        fields = ['start_date', 'end_date']
-        widgets = {
-            'start_date': forms.DateInput(attrs={'type': 'text', 'class': 'datepicker'}),
-            'end_date': forms.DateInput(attrs={'type': 'text', 'class': 'datepicker'}),
-        }
+        model = User
+        fields = ['email', 'first_name', 'last_name']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['photo']
+
+
+

@@ -2,14 +2,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
-from .models import Group, Product, Status, Reservation
+from .models import Group, Product, Status
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .forms import ReservationForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import password_validation
+from django.contrib.auth.decorators import login_required
+from .forms import UserUpdateForm, ProfileUpdateForm
 
 def index(request):
     num_products = Product.objects.all().count()
@@ -110,3 +111,30 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'register.html')
+
+@login_required
+def profile(request):
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        new_email = request.POST['email']
+        if new_email == "":
+            messages.error(request, f'El. paštas negali būti tuščias!')
+            return redirect('profile')
+        if request.user.email != new_email and User.objects.filter(email=new_email).exists():
+            messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
+            return redirect('profile')
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f"Profilis atnaujintas")
+            return redirect('profile')
+
+
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, "profile.html", context=context)

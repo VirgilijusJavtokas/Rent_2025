@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Group, Product, Status, Reservation
+from .models import Group, Product, Status, Reservation, Profile
 
 class ReservationInline(admin.TabularInline):
     model = Reservation
@@ -55,3 +55,4 @@ admin.site.register(Group)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(Profile)
