@@ -80,13 +80,13 @@ class Status(models.Model):
         ('r', 'Rezervuota'),
     )
 
-    condition = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default="a", help_text='Būklė')
+    condition = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default="a", verbose_name="Būsena")
 
     class Meta:
         ordering = ['due_date']
         verbose_name = "Produkto būsena"
         verbose_name_plural = "Produktų būsenos"
-        ordering = ['product']
+        ordering = ['-pk']
 
     def __str__(self):
         return f"{str(self.uuid)[:6]} - {self.get_condition_display()}"

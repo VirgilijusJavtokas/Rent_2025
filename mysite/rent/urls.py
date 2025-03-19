@@ -13,5 +13,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('statuses/', views.StatusListView.as_view(), name='statuses'),
     path('statuses/<int:pk>', views.StatusDetailView.as_view(), name='single_status'),
+    path('statuses/new/', views.StatusCreateView.as_view(), name='status_new'),
     path('myproducts/', views.CustomerProductsListView.as_view(), name='myproducts'),
 ]

@@ -60,7 +60,8 @@ def product(request, product_id):
 
 def search(request):
     query = request.GET.get('query')
-    product_search_result = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(group__name__icontains=query))
+    product_search_result = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(group__name__icontains=query) | Q(product_status__uuid__icontains=query)
+)
     context = {
         'query': query,
         'products': product_search_result,
@@ -92,6 +93,16 @@ class StatusDetailView(LoginRequiredMixin, UserPassesTestMixin, generic.DetailVi
 
     def test_func(self):
          return self.request.user.profile.is_employee
+
+
+class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = Status
+    template_name = "status_form.html"
+    fields = ['product', 'customer', 'condition']
+    success_url = "/rent/statuses/"
+
+    def test_func(self):
+        return self.request.user.profile.is_employee
 
 
 @csrf_protect
