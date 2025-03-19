@@ -1112,6 +1112,17 @@ section,
   box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
 }
 
+.services .details3 {
+  background: color-mix(in srgb, var(--surface-color), transparent 5%);
+  padding: 30px 10px;
+  margin: -120px 30px 0 30px;
+  transition: all ease-in-out 0.3s;
+  position: relative;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
+}
+
 .services .details .icon {
   margin: 0;
   width: 72px;

@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Sutvarkytas Register.html dizainas">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos.">
+      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/media/profile_pics/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/media/profile_pics/default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
@@ -51,17 +49,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/templates",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mysite/rent/templates" />
@@ -346,11 +344,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742297882616</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos.">
+      <option name="closed" value="true" />
+      <created>1742301642773</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1742301642773</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Veikia BASE.htmil su dizainu" />
     <MESSAGE value="Aptvarkytas dizainas, dar reikes pakeisti foto kreipimasi su STATIC" />
     <MESSAGE value="Sudetos grupiu foto ir sutvarkytas Footer" />
     <MESSAGE value="Pridetas produktu puslapis" />
@@ -375,7 +380,8 @@
     <MESSAGE value="sutvarkytas login.html ir register.html dizainai" />
     <MESSAGE value="Idetas User puslapis su redagavimo galimybe" />
     <MESSAGE value="Sutvarkytas Register.html dizainas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sutvarkytas Register.html dizainas" />
+    <MESSAGE value="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -387,12 +393,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mysite/rent/views.py</url>
-          <line>85</line>
+          <line>96</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mysite/rent/views.py</url>
-          <line>86</line>
+          <line>97</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

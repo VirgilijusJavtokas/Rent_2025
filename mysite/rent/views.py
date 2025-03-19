@@ -85,6 +85,15 @@ class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
          return self.request.user.profile.is_employee
 
 
+class StatusDetailView(LoginRequiredMixin, UserPassesTestMixin, generic.DetailView):
+    model = Status
+    template_name = "single_status.html"
+    context_object_name = "single_status"
+
+    def test_func(self):
+         return self.request.user.profile.is_employee
+
+
 @csrf_protect
 def register(request):
     if request.method == "POST":

@@ -12,5 +12,6 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path('profile/', views.profile, name='profile'),
     path('statuses/', views.StatusListView.as_view(), name='statuses'),
+    path('statuses/<int:pk>', views.StatusDetailView.as_view(), name='single_status'),
     path('myproducts/', views.CustomerProductsListView.as_view(), name='myproducts'),
 ]
