@@ -36,10 +36,10 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ['status_uuid', 'start_date', 'end_date']
-    list_editable = ['start_date', 'end_date']
+    list_display = ['status_uuid', 'customer', 'start_date', 'end_date']
+    list_editable = ['customer', 'start_date', 'end_date']
     list_display_links = ['status_uuid']
-    list_filter = ['status__uuid']
+    list_filter = ['customer', 'status__uuid']
 
     def status_uuid(self, obj):
         if obj.status and obj.status.uuid:

@@ -68,7 +68,6 @@ class Product(models.Model):
 
 class Status(models.Model):
     uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
-    # due_back = models.DateField(verbose_name="Bus prieinama nuo", null=True, blank=True)
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
     is_available = models.BooleanField(default=True)
     customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")
@@ -94,10 +93,10 @@ class Status(models.Model):
 
 
 class Reservation(models.Model):
-    # product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reservations_product',null=True, blank=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='reservations_status',null=True, blank=True)
     start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
     end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
+    customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Klientas")
 
     class Meta:
         verbose_name = "Rezervacija"
@@ -109,6 +108,6 @@ class Reservation(models.Model):
 
     def __str__(self):
         status_uuid = self.status.uuid if self.status else "No Status"
-        return f"Status UUID: {status_uuid} ({self.start_date} - {self.end_date})"
+        return f"Status UUID: {status_uuid} ({self.start_date} - {self.end_date} - {self.customer})"
 
 
