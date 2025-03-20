@@ -124,6 +124,18 @@ class StatusUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
         return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
 
 
+class StatusDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Status
+    template_name = "status_confirm_delete.html"
+    context_object_name = "single_status"
+
+    def test_func(self):
+        return self.request.user.profile.is_employee
+
+    def get_success_url(self):
+        return reverse('statuses')
+
+
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
     fields = ['customer', 'start_date', 'end_date']

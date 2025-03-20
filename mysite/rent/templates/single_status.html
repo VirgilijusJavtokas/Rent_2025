@@ -11,18 +11,6 @@
         <h2>Prekės</h2>
         <p>{{ single_status.product.name }}<br></p>
     </div>
-    <!--    <div class="container services section" data-aos="fade-up" data-aos-delay="100">-->
-    <!--                        {% if single_status.product.cover %}-->
-    <!--                        <div class="img">-->
-    <!--                            <img src="{{ single_status.product.cover.url }}" class="img-fluid" alt=""-->
-    <!--                                 style="max-width: 300px; height: auto;">-->
-    <!--                        </div>-->
-    <!--                        {% endif %}-->
-    <!--    </div>-->
-    <!--</section>-->
-
-    <!--<section id="product_description" class="about section">-->
-    <!--    <div class="container" data-aos="fade-up" data-aos-delay="100">-->
 
     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
         <div class="content ps-0 ps-lg-5">
@@ -31,9 +19,9 @@
                 </li>
                 <li><strong>Būklė: </strong> {{ single_status.get_condition_display }}
                 </li>
-                <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}
-">Nauja rezervacija</a>
+                <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}">Nauja rezervacija</a>
                 <a class="btn btn-primary register-button" style="background-color: #5baefc; border-color: #5baefc;" href="{% url 'status_update' pk=object.pk %}">Redaguoti</a>
+                <a class="btn btn-danger register-button" href="{% url 'status_delete'  pk=object.pk %}">Ištrinti</a>
                 <li></li>
                 <li><strong>Rezervacijos: </strong>
                     {% if single_status.reservations_status.all %}
