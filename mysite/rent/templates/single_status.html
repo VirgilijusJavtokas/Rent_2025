@@ -28,7 +28,7 @@
                     <ul>
                         {% for reservation in single_status.reservations_status.all %}
                         <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}</li>
-                        <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' pk=object.pk %}">Redaguoti</a></li>
+                        <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' status_pk=single_status.pk pk=reservation.pk %}">Redaguoti</a></li>
                         {% endfor %}
                     </ul>
                     {% else %}

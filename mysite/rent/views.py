@@ -160,21 +160,19 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Upd
 
     def get_object(self, queryset=None):
         try:
-            return Reservation.objects.get(status_id=self.kwargs['pk'])
+            return Reservation.objects.get(pk=self.kwargs['pk'])
         except Reservation.DoesNotExist:
             raise Http404("Rezervacija nerasta")
 
-
     def form_valid(self, form):
-        form.instance.status_id = self.kwargs['pk']
+        form.instance.status_id = self.kwargs['status_pk']
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
+        return reverse('single_status', kwargs={'pk': self.kwargs['status_pk']})
 
     def test_func(self):
         return self.request.user.profile.is_employee
-
 
 @csrf_protect
 def register(request):

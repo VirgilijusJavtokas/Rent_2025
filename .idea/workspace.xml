@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prideta galimybe istrinti preke single_status.html">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prideta galimybe redaguoto rezervazija">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
@@ -408,11 +406,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742475432362</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Prideta galimybe redaguoto rezervazija">
+      <option name="closed" value="true" />
+      <created>1742479024606</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1742479024606</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ideta paieska" />
     <MESSAGE value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
     <MESSAGE value="Sumazintas headeris csv faile hero2" />
     <MESSAGE value="Sutvarkytas footer ir header su melyna spalva" />
@@ -437,6 +442,7 @@
     <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
     <MESSAGE value="Prideta galimybe redaguoti preke single_status.html" />
     <MESSAGE value="Prideta galimybe istrinti preke single_status.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prideta galimybe istrinti preke single_status.html" />
+    <MESSAGE value="Prideta galimybe redaguoto rezervazija" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prideta galimybe redaguoto rezervazija" />
   </component>
 </project>
