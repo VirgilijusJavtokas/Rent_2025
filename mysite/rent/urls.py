@@ -18,5 +18,5 @@ urlpatterns = [
     path('statuses/<int:pk>/delete/', views.StatusDeleteView.as_view(), name='status_delete'),
     path('statuses/new/', views.StatusCreateView.as_view(), name='status_new'),
     path('statuses/<int:pk>/new', views.ReservationCreateView.as_view(), name='reservation_new'),
-
+    path('statuses/<int:pk>/update', views.ReservationUpdateView.as_view(), name='reservation_update'),
 ]

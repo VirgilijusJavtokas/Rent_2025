@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 
@@ -152,7 +153,27 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
     def test_func(self):
         return self.request.user.profile.is_employee
 
+class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Reservation
+    fields = ['customer', 'start_date', 'end_date']
+    template_name = "reservation_form.html"
 
+    def get_object(self, queryset=None):
+        try:
+            return Reservation.objects.get(status_id=self.kwargs['pk'])
+        except Reservation.DoesNotExist:
+            raise Http404("Rezervacija nerasta")
+
+
+    def form_valid(self, form):
+        form.instance.status_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
+
+    def test_func(self):
+        return self.request.user.profile.is_employee
 
 
 @csrf_protect

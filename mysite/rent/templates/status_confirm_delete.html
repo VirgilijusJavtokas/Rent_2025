@@ -20,7 +20,7 @@
                 {% load crispy_forms_tags %}
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <h3>Ar tikrai norite ištrinti prekės būseną: {{ single_status }}?</h3>
+                    <h5>Ar tikrai norite ištrinti prekės - {{ single_status.product.name }} - būseną: {{ single_status }}?</h5>
                 </fieldset>
                 <div class="form-group">
                     <button class="btn btn-danger register-button" type="submit">Taip, ištrinti</button>

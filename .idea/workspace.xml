@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prideta galimybe redaguoti preke single_status.html">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prideta galimybe istrinti preke single_status.html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
@@ -399,11 +400,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742472886041</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Prideta galimybe istrinti preke single_status.html">
+      <option name="closed" value="true" />
+      <created>1742475432361</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1742475432362</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Padarytas puslapiavimas PRODUCTS.html" />
     <MESSAGE value="ideta paieska" />
     <MESSAGE value="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi" />
     <MESSAGE value="Sumazintas headeris csv faile hero2" />
@@ -428,6 +436,7 @@
     <MESSAGE value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
     <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
     <MESSAGE value="Prideta galimybe redaguoti preke single_status.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prideta galimybe redaguoti preke single_status.html" />
+    <MESSAGE value="Prideta galimybe istrinti preke single_status.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prideta galimybe istrinti preke single_status.html" />
   </component>
 </project>
