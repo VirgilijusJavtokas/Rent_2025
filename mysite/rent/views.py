@@ -106,6 +106,24 @@ class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
     def test_func(self):
         return self.request.user.profile.is_employee
 
+
+class StatusUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Status
+    template_name = "status_form.html"
+    fields = ['product', 'customer', 'condition']
+    # success_url = "/rent/statuses/"
+
+    def form_valid(self, form):
+        form.instance.status_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    def test_func(self):
+        return self.request.user.profile.is_employee
+
+    def get_success_url(self):
+        return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
+
+
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
     fields = ['customer', 'start_date', 'end_date']
@@ -121,6 +139,9 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
 
     def test_func(self):
         return self.request.user.profile.is_employee
+
+
+
 
 @csrf_protect
 def register(request):

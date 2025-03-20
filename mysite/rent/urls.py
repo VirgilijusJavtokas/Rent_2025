@@ -14,6 +14,7 @@ urlpatterns = [
     path('myproducts/', views.CustomerProductsListView.as_view(), name='myproducts'),
     path('statuses/', views.StatusListView.as_view(), name='statuses'),
     path('statuses/<int:pk>', views.StatusDetailView.as_view(), name='single_status'),
+    path('statuses/<int:pk>/update/', views.StatusUpdateView.as_view(), name='status_update'),
     path('statuses/new/', views.StatusCreateView.as_view(), name='status_new'),
     path('statuses/<int:pk>/new', views.ReservationCreateView.as_view(), name='reservation_new'),
 

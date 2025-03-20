@@ -31,6 +31,10 @@
                 </li>
                 <li><strong>Būklė: </strong> {{ single_status.get_condition_display }}
                 </li>
+                <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}
+">Nauja rezervacija</a>
+                <a class="btn btn-primary register-button" style="background-color: #5baefc; border-color: #5baefc;" href="{% url 'status_update' pk=object.pk %}">Redaguoti</a>
+                <li></li>
                 <li><strong>Rezervacijos: </strong>
                     {% if single_status.reservations_status.all %}
                     <ul>
@@ -43,8 +47,6 @@
                     Nėra susietų rezervacijų
                     {% endif %}
                 </li>
-  <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}
-">Nauja rezervacija</a>
 
             </ul>
         </div>

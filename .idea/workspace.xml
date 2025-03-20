@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="galima kurti nauja rezervacija, bet numeta ne i ta puslapi">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -380,11 +382,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742463921066</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa">
+      <option name="closed" value="true" />
+      <created>1742464583178</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1742464583178</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sutvarkytos nuorodos i PRODUCTS puslapi" />
     <MESSAGE value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
     <MESSAGE value="Padarytas puslapiavimas PRODUCTS.html" />
     <MESSAGE value="ideta paieska" />
@@ -409,6 +418,7 @@
     <MESSAGE value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
     <MESSAGE value="statuses.html prideta galimybe kurti nauja prekės būseną" />
     <MESSAGE value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
-    <option name="LAST_COMMIT_MESSAGE" value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
+    <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
   </component>
 </project>
