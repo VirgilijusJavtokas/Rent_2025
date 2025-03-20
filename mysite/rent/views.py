@@ -108,17 +108,16 @@ class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
 
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
-    fields = ['status', 'customer', 'start_date', 'end_date']
+    fields = ['customer', 'start_date', 'end_date']
     # success_url = "/rent/statuses/<int:pk>/"
     template_name = "reservation_form.html"
 
+    def form_valid(self, form):
+        form.instance.status_id = self.kwargs['pk']
+        return super().form_valid(form)
+
     def get_success_url(self):
-        return reverse('single_status', kwargs={'pk': self.object.pk})
-
-
-    # def form_valid(self, form):
-    #     form.instance.customer = User.objects.get(pk=self.kwargs['pk'])
-    #     return super().form_valid(form)
+        return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
 
     def test_func(self):
         return self.request.user.profile.is_employee
