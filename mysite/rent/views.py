@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from .models import Group, Product, Status
+from django.urls import reverse_lazy, reverse
+
+from .models import Group, Product, Status, Reservation
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -104,6 +106,22 @@ class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
     def test_func(self):
         return self.request.user.profile.is_employee
 
+class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = Reservation
+    fields = ['status', 'customer', 'start_date', 'end_date']
+    # success_url = "/rent/statuses/<int:pk>/"
+    template_name = "reservation_form.html"
+
+    def get_success_url(self):
+        return reverse('single_status', kwargs={'pk': self.object.pk})
+
+
+    # def form_valid(self, form):
+    #     form.instance.customer = User.objects.get(pk=self.kwargs['pk'])
+    #     return super().form_valid(form)
+
+    def test_func(self):
+        return self.request.user.profile.is_employee
 
 @csrf_protect
 def register(request):

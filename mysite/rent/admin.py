@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Group, Product, Status, Reservation, Profile
 
+
 class ReservationInline(admin.TabularInline):
     model = Reservation
     extra = 0

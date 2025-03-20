@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 {% load i18n %}
 
-{% block 'title' %}Prekės kūrimas{% endblock %}
+{% block 'title' %}Rezervacijos kūrimas{% endblock %}
 
 {% load static %}
 
@@ -10,15 +10,15 @@
 <section id="registration" class="contact section">
 
     <div class="container section-title" data-aos="fade-up">
-        <h2>Prekės</h2>
+        <h2>Rezervacijos</h2>
         <p>Kūrimas/redagavimas</p>
         <p></p>
-
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             {% load crispy_forms_tags %}
             {{ form|crispy }}
+
             <div class="form-group">
                 <button class="btn btn-outline text-white" style="background-color: #ff4a17; border-color: #ff4a17;" type="submit">Išsaugoti</button>
             </div>

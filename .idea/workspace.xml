@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="statuses.html prideta galimybe kurti nauja prekės būseną">
+      <change afterPath="$PROJECT_DIR$/mysite/rent/media/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/reservation_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
@@ -56,17 +58,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/templates",
-    "settings.editor.selected.configurable": "preferences.sourceCode"
+    "last_opened_file_path": "/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/media",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/rent/media" />
       <recent name="$PROJECT_DIR$/mysite/rent/templates" />
       <recent name="$PROJECT_DIR$/mysite/rent/media/profile_pics" />
       <recent name="$PROJECT_DIR$/mysite/rent/static/css" />
       <recent name="$PROJECT_DIR$/mysite/rent/static/js" />
-      <recent name="$PROJECT_DIR$/mysite/rent/static/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mysite/rent/static" />
@@ -368,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742384639126</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="statuses.html prideta galimybe kurti nauja prekės būseną">
+      <option name="closed" value="true" />
+      <created>1742388386409</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1742388386409</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pridetas produktu puslapis" />
     <MESSAGE value="Produktu puslapyje rodo prekes pagal grupes" />
     <MESSAGE value="Sutvarkytos nuorodos i PRODUCTS puslapi" />
     <MESSAGE value="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja" />
@@ -397,6 +406,7 @@
     <MESSAGE value="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos." />
     <MESSAGE value="Sutvarkutas single_status.html atvaizdavimas" />
     <MESSAGE value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
+    <MESSAGE value="statuses.html prideta galimybe kurti nauja prekės būseną" />
+    <option name="LAST_COMMIT_MESSAGE" value="statuses.html prideta galimybe kurti nauja prekės būseną" />
   </component>
 </project>

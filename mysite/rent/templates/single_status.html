@@ -43,7 +43,8 @@
                     Nėra susietų rezervacijų
                     {% endif %}
                 </li>
-
+  <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}
+">Nauja rezervacija</a>
 
             </ul>
         </div>
