@@ -121,9 +121,16 @@ def products(request):
 
 
 def product(request, product_id):
-    context = {"product": Product.objects.prefetch_related('product_status').get(id=product_id)
-}
+    # Iš anksto pasiruošiam „Status“ su susijusiomis rezervacijomis
+    product = Product.objects.prefetch_related(
+        'product_status__reservations_status'  # Susiję rezervacijų duomenys
+    ).get(id=product_id)
+
+    context = {
+        "product": product,
+    }
     return render(request, 'product.html', context)
+
 
 def search(request):
     query = request.GET.get('query')

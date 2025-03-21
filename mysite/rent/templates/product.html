@@ -48,19 +48,34 @@
                     </li>
 
                     <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
-                        <p></p>
-                        {% if product.product_status.all %}
-                        {% for status in product.product_status.all %}
-                        <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger
-           {% elif status.condition == 'g' %}text-success
-           {% endif %}">{{ status }}</p>
-                        <hr/>
+    <p></p>
+    {% if product.product_status.all %}
+    {% for status in product.product_status.all %}
+    <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger
+       {% elif status.condition == 'g' %}text-success
+       {% endif %}">
+        <!-- Atvaizduokite status informaciją -->
+        {{ status }}
+    </p>
+    <ul>
+        {% if status.reservations_status.all %}
+       <li><strong>Rezervacijos (šiomis dienomis prekės nuomotis negalima):</strong></li>
+        {% for reservation in status.reservations_status.all %}
 
-                        {% endfor %}
-                        {% else %}
-                        <p class="text-danger">Šiuo metu neturime šios prekės</p>
-                        {% endif %}
-                    </li>
+        <li>
+            - {{ reservation.start_date }} - {{ reservation.end_date }}
+        </li>
+        {% endfor %}
+        {% else %}
+        <li class="text-muted">Nėra rezervacijų</li>
+        {% endif %}
+    </ul>
+
+    {% endfor %}
+    {% else %}
+    <p class="text-danger">Šiuo metu neturime šios prekės</p>
+    {% endif %}
+</li>
 
 
                 </ul>
