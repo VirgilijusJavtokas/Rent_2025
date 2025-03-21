@@ -1,4 +1,4 @@
-from .models import Profile
+from .models import Profile, Reservation
 from django import forms
 from django.contrib.auth.models import User
 
@@ -16,5 +16,12 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['photo']
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
+class ReservationCreateUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ['customer', 'start_date', 'end_date']
+        widgets = {'start_date': DateInput(), 'end_date': DateInput()}
 

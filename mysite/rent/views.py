@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import password_validation
 from django.contrib.auth.decorators import login_required
-from .forms import UserUpdateForm, ProfileUpdateForm
+from .forms import UserUpdateForm, ProfileUpdateForm, ReservationCreateUpdateForm
 
 @csrf_protect
 def register(request):
@@ -203,9 +203,20 @@ class StatusDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
 
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
-    fields = ['customer', 'start_date', 'end_date']
-    # success_url = "/rent/statuses/<int:pk>/"
     template_name = "reservation_form.html"
+    form_class = ReservationCreateUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Gaukite susijusį `Status` objektą pagal perduotą `pk`
+        status = Status.objects.get(pk=self.kwargs['pk'])
+
+        # Pridėkite reikalingus duomenis į kontekstą
+        context['status'] = status
+        context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
+
+        return context
+
 
     def form_valid(self, form):
         form.instance.status_id = self.kwargs['pk']
@@ -219,8 +230,9 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
 
 class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Reservation
-    fields = ['customer', 'start_date', 'end_date']
+    # fields = ['customer', 'start_date', 'end_date']
     template_name = "reservation_form.html"
+    form_class = ReservationCreateUpdateForm
 
     def get_object(self, queryset=None):
         try:
