@@ -14,6 +14,70 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 
+@csrf_protect
+def register(request):
+    if request.method == "POST":
+        # pasiimame reikšmes iš registracijos formos
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        # tikriname, ar sutampa slaptažodžiai
+        if password == password2:
+            # tikriname, ar neužimtas username
+            if User.objects.filter(username=username).exists():
+                messages.error(request, f'Vartotojo vardas {username} užimtas!')
+                return redirect('register')
+            else:
+                # tikriname, ar nėra tokio pat email
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
+                    return redirect('register')
+                else:
+                    try:
+                        password_validation.validate_password(password)
+                    except password_validation.ValidationError as e:
+                        for error in e:
+                            messages.error(request, error)
+                        return redirect('register')
+
+                    # jeigu viskas tvarkoje, sukuriame naują vartotoją
+                    User.objects.create_user(username=username, email=email, password=password)
+                    messages.info(request, f'Vartotojas {username} užregistruotas!')
+                    return redirect('login')
+        else:
+            messages.error(request, 'Slaptažodžiai nesutampa!')
+            return redirect('register')
+    return render(request, 'register.html')
+
+@login_required
+def profile(request):
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        new_email = request.POST['email']
+        if new_email == "":
+            messages.error(request, f'El. paštas negali būti tuščias!')
+            return redirect('profile')
+        if request.user.email != new_email and User.objects.filter(email=new_email).exists():
+            messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
+            return redirect('profile')
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.info(request, f"Profilis atnaujintas")
+            return redirect('profile')
+
+
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, "profile.html", context=context)
+
+
 def index(request):
     num_products = Product.objects.all().count()
     num_groups = Group.objects.all().count()
@@ -171,68 +235,45 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Upd
     def get_success_url(self):
         return reverse('single_status', kwargs={'pk': self.kwargs['status_pk']})
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reservation = self.get_object() # Gauti rezervacijos objektą
+        status = reservation.status # Gauti susijusį Status objektą per užsienio raktą
+        # Įtraukti Status objektą ir produkto pavadinimą į kontekstą
+        context['status'] = status
+        context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
+        return context
+
     def test_func(self):
         return self.request.user.profile.is_employee
 
-@csrf_protect
-def register(request):
-    if request.method == "POST":
-        # pasiimame reikšmes iš registracijos formos
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        password2 = request.POST['password2']
-        # tikriname, ar sutampa slaptažodžiai
-        if password == password2:
-            # tikriname, ar neužimtas username
-            if User.objects.filter(username=username).exists():
-                messages.error(request, f'Vartotojo vardas {username} užimtas!')
-                return redirect('register')
-            else:
-                # tikriname, ar nėra tokio pat email
-                if User.objects.filter(email=email).exists():
-                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
-                    return redirect('register')
-                else:
-                    try:
-                        password_validation.validate_password(password)
-                    except password_validation.ValidationError as e:
-                        for error in e:
-                            messages.error(request, error)
-                        return redirect('register')
 
-                    # jeigu viskas tvarkoje, sukuriame naują vartotoją
-                    User.objects.create_user(username=username, email=email, password=password)
-                    messages.info(request, f'Vartotojas {username} užregistruotas!')
-                    return redirect('login')
-        else:
-            messages.error(request, 'Slaptažodžiai nesutampa!')
-            return redirect('register')
-    return render(request, 'register.html')
+class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Reservation
+    template_name = "reservation_delete.html"
+    context_object_name = "reservation"
 
-@login_required
-def profile(request):
-    if request.method == "POST":
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        new_email = request.POST['email']
-        if new_email == "":
-            messages.error(request, f'El. paštas negali būti tuščias!')
-            return redirect('profile')
-        if request.user.email != new_email and User.objects.filter(email=new_email).exists():
-            messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
-            return redirect('profile')
-        if u_form.is_valid() and p_form.is_valid():
-            u_form.save()
-            p_form.save()
-            messages.info(request, f"Profilis atnaujintas")
-            return redirect('profile')
+    def get_object(self, queryset=None):
+        reservation = Reservation.objects.get(pk=self.kwargs['pk'])
+        return reservation
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reservation = self.get_object()
+        status = reservation.status
+
+        # Įtraukti papildomą informaciją į kontekstą
+        context['status'] = status
+        context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
+        context['reservation_pk'] = reservation.pk
+        return context
+
+    def get_success_url(self):
+        return reverse('single_status', kwargs={'pk': self.object.status.pk})
+
+    def test_func(self):
+        # Tikrina, ar vartotojas yra darbuotojas, kaip ir kitose klasėse
+        return self.request.user.profile.is_employee
 
 
-    u_form = UserUpdateForm(instance=request.user)
-    p_form = ProfileUpdateForm(instance=request.user.profile)
-    context = {
-        'u_form': u_form,
-        'p_form': p_form,
-    }
-    return render(request, "profile.html", context=context)
+
