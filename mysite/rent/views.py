@@ -155,6 +155,7 @@ class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
      model = Status
      template_name = "statuses.html"
      context_object_name = "statuses"
+     ordering = ["product"]
 
      def test_func(self):
          return self.request.user.profile.is_employee
@@ -237,7 +238,6 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
 
 class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Reservation
-    # fields = ['customer', 'start_date', 'end_date']
     template_name = "reservation_form.html"
     form_class = ReservationCreateUpdateForm
 

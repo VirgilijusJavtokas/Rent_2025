@@ -14,12 +14,8 @@
 <section id="product_img" class="services section">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
             <div class="col-xl-5 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                 <div class="service-item">
-                    <div class="img">
                         {% if product.cover %}
                         <div class="img">
                             <img src="{{ product.cover.url }}" class="img-fluid" alt=""
@@ -28,58 +24,96 @@
                         {% endif %}
                         <div class="details2">
                             <h2>{{ product }}</h2>
-                        </div>
                     </div>
-                </div><!-- End Service Item -->
-            </div>
+                </div>
         </div>
     </div>
 </section>
-
 <section id="product_description" class="about section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                <div class="content ps-0 ps-lg-5">
+                    <ul class="pt-2">
+                        <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
+                        </li>
+                        <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong> {{ product.description | safe }}
+                        </li>
 
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
-                <ul class="pt-2">
-                    <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
-                    </li>
-                    <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong> {{ product.description | safe }}
-                    </li>
+                        <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
+                            <p></p>
+                            {% if product.product_status.all %}
+                            {% for status in product.product_status.all %}
+                            <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger{% elif status.condition == 'g' %}text-success{% endif %}">
+                                Nr.: {{ status.uuid|slice:":6" }}, šiandienos būklė: {{ status.get_condition_display }}
+                            </p>
+                            <ul>
+                                {% if status.reservations_status.all %}
+                                <li><strong>Rezervacijos (šiomis dienomis prekės nuomotis negalima):</strong></li>
+                                {% for reservation in status.reservations_status.all %}
 
-                    <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
-    <p></p>
-    {% if product.product_status.all %}
-    {% for status in product.product_status.all %}
-    <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger
-       {% elif status.condition == 'g' %}text-success
-       {% endif %}">
-        <!-- Atvaizduokite status informaciją -->
-        {{ status }}
-    </p>
-    <ul>
-        {% if status.reservations_status.all %}
-       <li><strong>Rezervacijos (šiomis dienomis prekės nuomotis negalima):</strong></li>
-        {% for reservation in status.reservations_status.all %}
+                                <li>
+                                    - {{ reservation.start_date }} - {{ reservation.end_date }}
+                                </li>
+                                {% endfor %}
+                                {% else %}
+                                <li class="text-muted">Nėra rezervacijų</li>
+                                {% endif %}
+                            </ul>
 
-        <li>
-            - {{ reservation.start_date }} - {{ reservation.end_date }}
-        </li>
-        {% endfor %}
-        {% else %}
-        <li class="text-muted">Nėra rezervacijų</li>
-        {% endif %}
-    </ul>
-
-    {% endfor %}
-    {% else %}
-    <p class="text-danger">Šiuo metu neturime šios prekės</p>
-    {% endif %}
-</li>
+                            {% endfor %}
+                            {% if not user.is_authenticated %}
+                        <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
+                        <li><h5 style="color: #ff4a17;"><strong>DĖMESIO: jei norite rezervuoti prekes - prašome registruotis ir prisijungti.</strong></h5></li>
+                        {% endif %}
+                        {% else %}
+                        <p class="text-danger">Šiuo metu neturime šios prekės</p>
+                        {% endif %}
+                        </li>
 
 
-                </ul>
+                    </ul>
+                </div>
             </div>
+            {% if user.is_authenticated %}
+            <div class="col-lg-6 contact section align-items-center">
+                <p><h2>Rezervacijos forma:</h2></p>
+                <p class="text-danger"><strong>DĖMESIO: būtina nurodyta pasirinktos prekės Nr. ir norimas rezervacijos datas! </strong></p>
+                <form action="forms/contact.php" method="post" class="php-email-form">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                   required="">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email"
+                                   required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                   required="">
+                        </div>
+
+                        <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="4" placeholder="Message"
+                                              required=""></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Siunčiama</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Jūsų žinutė buvo išsiųstą. Ačiū.</div>
+
+                            <button type="submit">Siųsti</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>

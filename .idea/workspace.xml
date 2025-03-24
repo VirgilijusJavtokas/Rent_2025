@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Rodo kalendoriu datu pasirinkime">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prekės puslapyje rodo visas rezervacijas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,11 +437,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742549110438</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Prekės puslapyje rodo visas rezervacijas">
+      <option name="closed" value="true" />
+      <created>1742550252927</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1742550252927</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Admin puslapyje galima priskirti paveiksliukus" />
     <MESSAGE value="Pridetas vartotojo prisijungimas ir slaptazodzio keitimas" />
     <MESSAGE value="viskas veikia, niekas pakeisti nepavyko :-)" />
     <MESSAGE value="atstatytas normalus veikimas" />
@@ -466,6 +473,7 @@
     <MESSAGE value="Pataisyta kai yra daugiau rezervaciju ir tadajas galima redaguoti" />
     <MESSAGE value="Prideta galimybe kiekviena rezervacija ištrinti" />
     <MESSAGE value="Rodo kalendoriu datu pasirinkime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rodo kalendoriu datu pasirinkime" />
+    <MESSAGE value="Prekės puslapyje rodo visas rezervacijas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prekės puslapyje rodo visas rezervacijas" />
   </component>
 </project>
