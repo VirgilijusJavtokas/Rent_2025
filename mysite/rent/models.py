@@ -50,6 +50,7 @@ class Group(models.Model):
 
 class Product(models.Model):
     name = models.CharField(verbose_name="Pavadinimas", max_length=100)
+    price = models.IntegerField(verbose_name="Kaina", null=True, blank=True, help_text="Paros nuomos kaina")
     description = HTMLField(verbose_name="Aprašymas", max_length=1000, help_text='Trumpas produkto aprašymas', null=True, blank=True, default="")
     inv_no = models.CharField(verbose_name="Invenorizacijos numeris", max_length=100, null=True, blank=True, unique=True,
                               help_text="Veskite invenorizacijos numerį")
@@ -69,7 +70,6 @@ class Product(models.Model):
 class Status(models.Model):
     uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
-    is_available = models.BooleanField(default=True)
     customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")
     reservations = models.ForeignKey(to="Reservation", on_delete=models.SET_NULL, null=True, blank=True, related_name="status_reservations")
 
