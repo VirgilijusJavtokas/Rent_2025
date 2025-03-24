@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Prekės puslapyje rodo visas rezervacijas">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="prie prekes savybiu prideta kaina">
+      <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/klipas.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,24 +51,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/templates",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/virgilijusjavtokas/Desktop/PythonProject/rent_20250221/mysite/rent/static/img&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/rent/static/img" />
       <recent name="$PROJECT_DIR$/mysite/rent/templates" />
+      <recent name="$PROJECT_DIR$/mysite/rent/forms" />
       <recent name="$PROJECT_DIR$/mysite/rent/media" />
       <recent name="$PROJECT_DIR$/mysite/rent/media/profile_pics" />
-      <recent name="$PROJECT_DIR$/mysite/rent/static/css" />
-      <recent name="$PROJECT_DIR$/mysite/rent/static/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mysite/rent/static" />
@@ -72,7 +77,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-fc1d50d2d915-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.24978.54" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -445,12 +450,26 @@
       <option name="project" value="LOCAL" />
       <updated>1742550252927</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="sutvarkytas pradinio puslapio dizainas">
+      <option name="closed" value="true" />
+      <created>1742809405766</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1742809405766</updated>
+    </task>
+    <task id="LOCAL-00047" summary="prie prekes savybiu prideta kaina">
+      <option name="closed" value="true" />
+      <created>1742810046563</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1742810046563</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pridetas vartotojo prisijungimas ir slaptazodzio keitimas" />
-    <MESSAGE value="viskas veikia, niekas pakeisti nepavyko :-)" />
     <MESSAGE value="atstatytas normalus veikimas" />
     <MESSAGE value="Mano uzsakymuose rodo grazinimo data, bet reikia sutvarkyti ADMIN kaip pasirinkti rezervacijas" />
     <MESSAGE value="mano uzsakymuose rodo grazinimo datas" />
@@ -474,6 +493,8 @@
     <MESSAGE value="Prideta galimybe kiekviena rezervacija ištrinti" />
     <MESSAGE value="Rodo kalendoriu datu pasirinkime" />
     <MESSAGE value="Prekės puslapyje rodo visas rezervacijas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prekės puslapyje rodo visas rezervacijas" />
+    <MESSAGE value="sutvarkytas pradinio puslapio dizainas" />
+    <MESSAGE value="prie prekes savybiu prideta kaina" />
+    <option name="LAST_COMMIT_MESSAGE" value="prie prekes savybiu prideta kaina" />
   </component>
 </project>

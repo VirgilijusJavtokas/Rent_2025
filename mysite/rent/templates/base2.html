@@ -60,7 +60,7 @@
                               clip-rule="evenodd"/>
                     </svg>
                     {{ user.get_username }}</a></li>
-                <li><a href="{% url 'myproducts' %}">Mano užsakymai</a></li>
+                <li><a href="{% url 'my_reservations' %}">Mano užsakymai</a></li>
                 {% if user.profile.is_employee %}
                 <li><a href="{% url 'statuses' %}">Būklės</a></li>
                 {% endif %}

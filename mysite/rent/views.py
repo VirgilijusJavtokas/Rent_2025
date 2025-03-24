@@ -142,13 +142,13 @@ def search(request):
     }
     return render(request, 'search.html', context)
 
-class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
-    model = Status
-    template_name = "my_products.html"
-    context_object_name = "orders"
-
-    def get_queryset(self):
-        return Status.objects.filter(customer=self.request.user)
+# class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
+#     model = Status
+#     template_name = "my_reservations.html"
+#     context_object_name = "orders"
+#
+#     def get_queryset(self):
+#         return Status.objects.filter(customer=self.request.user)
 
 
 class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
@@ -208,6 +208,14 @@ class StatusDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
     def get_success_url(self):
         return reverse('statuses')
 
+class ReservationListView(LoginRequiredMixin, generic.ListView):
+    model = Reservation
+    template_name = "my_reservations.html"
+    context_object_name = "reservations"
+
+    def get_queryset(self):
+        # Grąžinamos tik tos rezervacijos, kurios priklauso prisijungusiam vartotojui
+        return Reservation.objects.filter(customer=self.request.user).order_by('start_date')
 
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation

@@ -7,19 +7,22 @@ class ReservationInline(admin.TabularInline):
     extra = 0
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ['product', 'uuid', 'customer', 'condition']
+    list_display = ['product', 'uuid', 'condition']
     list_filter = ['product', 'uuid', 'condition']
-    search_fields = ['product__name', 'uuid', 'customer__username']
-    list_editable = ['customer', 'condition']
+    search_fields = ['product__name', 'uuid']
+    list_editable = ['condition']
     fieldsets = [
         ('General', {'fields': ['product']}),
-        ('Availability', {'fields': ['customer','condition']}),
+        ('Availability', {'fields': ['condition']}),
     ]
     inlines = [ReservationInline]
 
 class StatusInline(admin.TabularInline):
     model = Status
     extra = 0
+    fields = ('uuid', 'condition')
+    readonly_fields = ('uuid',)
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'quantity','inv_no', 'status_condition']
