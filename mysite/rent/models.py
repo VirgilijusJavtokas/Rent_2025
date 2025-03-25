@@ -98,6 +98,8 @@ class Reservation(models.Model):
     start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)
     end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Klientas")
+    is_approved = models.BooleanField(default=False, verbose_name="Ar patvirtinta", null=True, blank=True)
+
 
     class Meta:
         verbose_name = "Rezervacija"
@@ -110,5 +112,8 @@ class Reservation(models.Model):
     def __str__(self):
         status_uuid = self.status.uuid if self.status else "No Status"
         return f"Status UUID: {status_uuid} ({self.start_date} - {self.end_date} - {self.customer})"
+
+
+
 
 

@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.http import Http404
-from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponseBadRequest
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
+from datetime import datetime
 
 from .models import Group, Product, Status, Reservation
 from django.views import generic
@@ -201,9 +202,17 @@ class ReservationListView(LoginRequiredMixin, generic.ListView):
     template_name = "my_reservations.html"
     context_object_name = "reservations"
 
-    def get_queryset(self):
-        # Grąžinamos tik tos rezervacijos, kurios priklauso prisijungusiam vartotojui
-        return Reservation.objects.filter(customer=self.request.user).order_by('start_date')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Add approved and pending reservations to the context
+        context['approved_reservations'] = Reservation.objects.filter(
+            customer=self.request.user, is_approved=True
+        ).order_by('start_date')
+        context['pending_reservations'] = Reservation.objects.filter(
+            customer=self.request.user, is_approved=False
+        ).order_by('start_date')
+        return context
+
 
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
@@ -290,5 +299,64 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
         # Tikrina, ar vartotojas yra darbuotojas, kaip ir kitose klasėse
         return self.request.user.profile.is_employee
 
+    # pridetas krepselio funkcijos
+@login_required
+def reserve_product(request, product_id):
+    # Get the GET parameters
+    status_id = request.GET.get('status_id')
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
 
+    # Validate input
+    if not status_id or not start_date or not end_date:
+        return HttpResponseBadRequest("Trūksta būsenos arba datos parametrų!")
+
+    # Convert date strings to date objects
+    try:
+        start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+        end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+    except ValueError:
+        return HttpResponseBadRequest("Netinkamos datos reikšmės!")
+
+    # Ensure start_date <= end_date
+    if start_date > end_date:
+        return HttpResponseBadRequest("Pradžios data negali būti vėlesnė už pabaigos datą!")
+
+    # Get the product and status
+    product = get_object_or_404(Product, id=product_id)
+    status = get_object_or_404(Status, id=status_id, product=product)
+
+    # Check for overlapping reservations
+    if Reservation.objects.filter(
+            status=status,
+            start_date__lte=end_date,
+            end_date__gte=start_date
+    ).exists():
+        messages.error(request, "Ši prekė užimta nurodytu laikotarpiu!")
+        return redirect('product', product_id=product_id)
+
+    # Create the reservation with is_approved=False
+    Reservation.objects.create(
+        status=status,
+        start_date=start_date,
+        end_date=end_date,
+        customer=request.user,
+        is_approved=False  # Mark the reservation as pending admin approval
+    )
+
+    # Success message and redirect
+    messages.info(request, "Jūsų rezervacija buvo išsaugota ir laukia patvirtinimo!")
+    return redirect('my_reservations')
+
+def approve_reservation(request, status_pk, pk):
+    # Get the reservation by reservation ID (pk) and status ID (status_pk)
+    reservation = get_object_or_404(Reservation, pk=pk, status_id=status_pk)
+
+    # Approve the reservation
+    reservation.is_approved = True
+    reservation.save()
+    messages.success(request, f"Rezervacija sėkmingai patvirtinta! ({reservation.start_date} - {reservation.end_date})")
+
+    # Redirect back to the status detail view
+    return redirect('single_status', pk=status_pk)
 

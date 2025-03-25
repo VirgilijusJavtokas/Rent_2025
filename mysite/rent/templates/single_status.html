@@ -20,19 +20,30 @@
                 <li><strong>Būklė: </strong> {{ single_status.get_condition_display }}
                 </li>
                 <div style="margin-left: 30px;">
-                <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}">Nauja rezervacija</a>
-                <a class="btn btn-primary register-button" href="{% url 'status_update' pk=object.pk %}">Redaguoti</a>
-                <a class="btn btn-danger register-button" href="{% url 'status_delete'  pk=object.pk %}">Ištrinti</a>
-                    </div>
+                    <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'reservation_new' pk=object.pk %}">Nauja
+                        rezervacija</a>
+                    <a class="btn btn-primary register-button" href="{% url 'status_update' pk=object.pk %}">Redaguoti</a>
+                    <a class="btn btn-danger register-button" href="{% url 'status_delete'  pk=object.pk %}">Ištrinti</a>
+                </div>
                 <li></li>
                 <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
                 <li><strong>Rezervacijos: </strong>
                     {% if single_status.reservations_status.all %}
                     <ul>
                         {% for reservation in single_status.reservations_status.all %}
-                        <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}
+                        </li>
                         <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' status_pk=single_status.pk pk=reservation.pk %}">Redaguoti</a>
-                        <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a></li>
+                            <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a></li>
+                        {% if not reservation.is_approved %}
+                        <span class="text-danger">Nepatvirtinta</span>
+                        <a class="btn btn-success btn-sm" href="{% url 'reservation_approve' status_pk=single_status.pk pk=reservation.pk %}"
+                           style="margin-left: 10px;">Patvirtinti</a>
+                        {% else %}
+                        <span class="text-success">Patvirtinta</span>
+
+                        {% endif %}
+
                         {% endfor %}
                     </ul>
                     {% else %}
