@@ -121,14 +121,9 @@ def products(request):
 
 
 def product(request, product_id):
-    # Iš anksto pasiruošiam „Status“ su susijusiomis rezervacijomis
-    product = Product.objects.prefetch_related(
-        'product_status__reservations_status'  # Susiję rezervacijų duomenys
-    ).get(id=product_id)
+    product = Product.objects.prefetch_related('product_status__reservations_status').get(id=product_id)
 
-    context = {
-        "product": product,
-    }
+    context = {"product": product,}
     return render(request, 'product.html', context)
 
 
@@ -141,14 +136,6 @@ def search(request):
         'products': product_search_result,
     }
     return render(request, 'search.html', context)
-
-# class CustomerProductsListView(LoginRequiredMixin, generic.ListView):
-#     model = Status
-#     template_name = "my_reservations.html"
-#     context_object_name = "orders"
-#
-#     def get_queryset(self):
-#         return Status.objects.filter(customer=self.request.user)
 
 
 class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
@@ -184,7 +171,7 @@ class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
 class StatusUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Status
     template_name = "status_form.html"
-    fields = ['product', 'customer', 'condition']
+    fields = ['product', 'condition']
     # success_url = "/rent/statuses/"
 
     def form_valid(self, form):

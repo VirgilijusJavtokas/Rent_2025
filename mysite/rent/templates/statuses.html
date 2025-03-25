@@ -11,26 +11,18 @@
 
         <div class="container section-title" data-aos="fade-up">
             <h2>Prekės</h2>
-            <p>Nuomos prekių sąrašas<br></p>
+            <p>Nuomos prekių būklės<br></p>
         </div>
         <div class="col-md-6">
 
             <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'status_new' %}">Nauja prekė</a>
             <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
-            <!--        {% for status in statuses %}-->
-            <!--        <p></p>-->
-            <!--        <a href="{% url 'single_status' status.pk %}"><p class="{% if status.condition == 'i' %}text-danger{% elif status.condition == 'g' %}text-success-->
-            <!--    {% elif status.condition == 'n' %}text-dark{% endif %}">-->
-            <!--            <strong>Prekė:</strong> {{ status.product.name }} - {{ status }}</p></a>-->
-
-            <!--        <hr style="border: none; height: 2px; background-color: #ff4a17;"/>-->
-            <!--        {% endfor %}-->
 
             {% regroup statuses by product.name as grouped_statuses %}
 
             <!-- Iteruojame grupėmis -->
             {% for group in grouped_statuses %}
-            <div style="margin: 20px 0; padding: 20px;">
+            <div style="margin: 10px 0; padding: 10px;">
                 <!-- Grupės pavadinimas -->
                 <h3 style="color: #ff4a17;">{{ group.grouper }}</h3>
 
@@ -45,6 +37,7 @@
                 {% endfor %}
             </div>
             {% endfor %}
+
         </div>
     </div>
 
