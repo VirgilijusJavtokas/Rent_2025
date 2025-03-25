@@ -155,7 +155,7 @@ class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
      model = Status
      template_name = "statuses.html"
      context_object_name = "statuses"
-     ordering = ["product"]
+     ordering = ["product", "-created_at"]
 
      def test_func(self):
          return self.request.user.profile.is_employee
@@ -173,7 +173,7 @@ class StatusDetailView(LoginRequiredMixin, UserPassesTestMixin, generic.DetailVi
 class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Status
     template_name = "status_form.html"
-    fields = ['product', 'customer', 'condition']
+    fields = ['product', 'condition']
     success_url = "/rent/statuses/"
 
     def test_func(self):

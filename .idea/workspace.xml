@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="prie prekes savybiu prideta kaina">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="pasalinti nereikaling laukai admin puslapyje">
       <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/klipas.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -466,11 +462,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742810046563</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="pasalinti nereikaling laukai admin puslapyje">
+      <option name="closed" value="true" />
+      <created>1742823595792</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1742823595792</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="atstatytas normalus veikimas" />
     <MESSAGE value="Mano uzsakymuose rodo grazinimo data, bet reikia sutvarkyti ADMIN kaip pasirinkti rezervacijas" />
     <MESSAGE value="mano uzsakymuose rodo grazinimo datas" />
     <MESSAGE value="Kol kas product.html rodo tik viena busena" />
@@ -495,6 +498,7 @@
     <MESSAGE value="Prekės puslapyje rodo visas rezervacijas" />
     <MESSAGE value="sutvarkytas pradinio puslapio dizainas" />
     <MESSAGE value="prie prekes savybiu prideta kaina" />
-    <option name="LAST_COMMIT_MESSAGE" value="prie prekes savybiu prideta kaina" />
+    <MESSAGE value="pasalinti nereikaling laukai admin puslapyje" />
+    <option name="LAST_COMMIT_MESSAGE" value="pasalinti nereikaling laukai admin puslapyje" />
   </component>
 </project>

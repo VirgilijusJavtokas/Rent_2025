@@ -72,6 +72,7 @@ class Status(models.Model):
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
     customer = models.ForeignKey(to=User, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Klientas")
     reservations = models.ForeignKey(to="Reservation", on_delete=models.SET_NULL, null=True, blank=True, related_name="status_reservations")
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="Sukurta")
 
     LOAN_STATUS = (
         ('n', 'Laikinai neprieinama'),
