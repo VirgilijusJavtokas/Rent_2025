@@ -156,6 +156,7 @@ class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
      template_name = "statuses.html"
      context_object_name = "statuses"
      ordering = ["product", "-created_at"]
+     statuses = Status.objects.all().order_by('product__name')  # Rikiuojama pagal 'product.name'
 
      def test_func(self):
          return self.request.user.profile.is_employee

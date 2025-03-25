@@ -4,11 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="pasalinti nereikaling laukai admin puslapyje">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika">
       <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/klipas.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/about-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/clients/client-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/app-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/app-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/app-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/books-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/books-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/books-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/branding-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/branding-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/branding-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/portfolio/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/services-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/services-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/services-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/services.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/testimonials-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/working-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/working-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/working-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/static/img/working-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -470,11 +499,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742823595792</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika">
+      <option name="closed" value="true" />
+      <created>1742884100727</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1742884100727</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mano uzsakymuose rodo grazinimo data, bet reikia sutvarkyti ADMIN kaip pasirinkti rezervacijas" />
     <MESSAGE value="mano uzsakymuose rodo grazinimo datas" />
     <MESSAGE value="Kol kas product.html rodo tik viena busena" />
     <MESSAGE value="Product.html rodo ir visas prekes busenas" />
@@ -499,6 +535,7 @@
     <MESSAGE value="sutvarkytas pradinio puslapio dizainas" />
     <MESSAGE value="prie prekes savybiu prideta kaina" />
     <MESSAGE value="pasalinti nereikaling laukai admin puslapyje" />
-    <option name="LAST_COMMIT_MESSAGE" value="pasalinti nereikaling laukai admin puslapyje" />
+    <MESSAGE value="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika" />
+    <option name="LAST_COMMIT_MESSAGE" value="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika" />
   </component>
 </project>
