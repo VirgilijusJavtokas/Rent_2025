@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Viskas veikia - iki krepselio pridejimo">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="prideta galimybe rezervuoti prekes, o admin gali patvirtinti rezervacijas">
       <change afterPath="$PROJECT_DIR$/mysite/rent/static/img/klipas.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,14 +85,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Pradetas kurti dizainas - Pirmas puslapis">
-      <option name="closed" value="true" />
-      <created>1741094105195</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1741094105195</updated>
     </task>
     <task id="LOCAL-00004" summary="base.htmi: Prideta nuotaruka vietoj ikonos">
       <option name="closed" value="true" />
@@ -483,11 +470,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742890621338</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="prideta galimybe rezervuoti prekes, o admin gali patvirtinti rezervacijas">
+      <option name="closed" value="true" />
+      <created>1742905730435</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1742905730436</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Product.html rodo ir visas prekes busenas" />
     <MESSAGE value="Vizualiai sutvarkytas Mano uzsakymai puslapis" />
     <MESSAGE value="Prideta vartotojo registracija" />
     <MESSAGE value="sutvarkytas login.html ir register.html dizainai" />
@@ -512,6 +506,7 @@
     <MESSAGE value="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika" />
     <MESSAGE value="statuses modelyje grupuoja prekes pagal pavadinimus" />
     <MESSAGE value="Viskas veikia - iki krepselio pridejimo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Viskas veikia - iki krepselio pridejimo" />
+    <MESSAGE value="prideta galimybe rezervuoti prekes, o admin gali patvirtinti rezervacijas" />
+    <option name="LAST_COMMIT_MESSAGE" value="prideta galimybe rezervuoti prekes, o admin gali patvirtinti rezervacijas" />
   </component>
 </project>

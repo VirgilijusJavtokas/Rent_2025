@@ -14,18 +14,18 @@
 <section id="product_img" class="services section">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-xl-5 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="service-item">
-                        {% if product.cover %}
-                        <div class="img">
-                            <img src="{{ product.cover.url }}" class="img-fluid" alt=""
-                                 style="max-width: 600px; height: auto;">
-                        </div>
-                        {% endif %}
-                        <div class="details2">
-                            <h2>{{ product }}</h2>
-                    </div>
+        <div class="col-xl-5 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-item">
+                {% if product.cover %}
+                <div class="img">
+                    <img src="{{ product.cover.url }}" class="img-fluid" alt=""
+                         style="max-width: 600px; height: auto;">
                 </div>
+                {% endif %}
+                <div class="details2">
+                    <h2>{{ product }}</h2>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -65,7 +65,7 @@
 
                             {% endfor %}
                             {% if not user.is_authenticated %}
-                        <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
+                            <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
                         <li><h5 style="color: #ff4a17;"><strong>DĖMESIO: jei norite rezervuoti prekes - prašome registruotis ir prisijungti.</strong></h5></li>
                         {% endif %}
                         {% else %}
@@ -79,77 +79,41 @@
             </div>
             {% if user.is_authenticated %}
             <div class="col-lg-6 contact section align-items-center">
-    <p><h2>Rezervacija:</h2></p>
-    <p class="text-danger"><strong>DĖMESIO: būtina nurodyti pasirinktos prekės Nr. ir norimas rezervacijos datas!</strong></p>
-    <form method="GET" action="{% url 'reservation_new' product.id %}">
-        <div class="row gy-4">
+                <p>
+                <h2>Rezervacija:</h2></p>
+                <p class="text-danger"><strong>DĖMESIO: būtina nurodyti pasirinktos prekės Nr. ir norimas rezervacijos datas!</strong></p>
+                <form method="GET" action="{% url 'reservation_new' product.id %}">
+                    <div class="row gy-4">
 
-            <div class="col-md-12">
-                <label for="status_id"><strong>Pasirinkite prekės būseną:</strong></label>
-                <select name="status_id" id="status_id" class="form-control" required>
-                    {% for status in product.product_status.all %}
-                    {% if status.condition == "g" %}
-                    <option value="{{ status.id }}">Nr. {{ status.uuid|slice:":6" }} - {{ status.get_condition_display }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
+                        <div class="col-md-12">
+                            <label for="status_id"><strong>Pasirinkite prekės būseną:</strong></label>
+                            <select name="status_id" id="status_id" class="form-control" required>
+                                {% for status in product.product_status.all %}
+                                {% if status.condition == "g" %}
+                                <option value="{{ status.id }}">Nr. {{ status.uuid|slice:":6" }} - {{ status.get_condition_display }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="start_date"><strong>Pradžios data:</strong></label>
+                            <input type="date" name="start_date" id="start_date" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="end_date"><strong>Pabaigos data:</strong></label>
+                            <input type="date" name="end_date" id="end_date" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary" style="background-color: #ff4a17; border-color: #ff4a17;">Rezervuoti</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <div class="col-md-12">
-                <label for="start_date"><strong>Pradžios data:</strong></label>
-                <input type="date" name="start_date" id="start_date" class="form-control" required>
-            </div>
 
-            <div class="col-md-12">
-                <label for="end_date"><strong>Pabaigos data:</strong></label>
-                <input type="date" name="end_date" id="end_date" class="form-control" required>
-            </div>
-
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary" style="background-color: #ff4a17; border-color: #ff4a17;" >Rezervuoti</button>
-            </div>
-        </div>
-    </form>
-</div>
-
-
-<!--            <div class="col-lg-6 contact section align-items-center">-->
-<!--                <p><h2>Rezervacijos forma:</h2></p>-->
-<!--                <p class="text-danger"><strong>DĖMESIO: būtina nurodyta pasirinktos prekės Nr. ir norimas rezervacijos datas! </strong></p>-->
-<!--                <form action="forms/contact.php" method="post" class="php-email-form">-->
-<!--                    <div class="row gy-4">-->
-
-<!--                        <div class="col-md-6">-->
-<!--                            <input type="text" name="name" class="form-control" placeholder="Your Name"-->
-<!--                                   required="">-->
-<!--                        </div>-->
-
-<!--                        <div class="col-md-6 ">-->
-<!--                            <input type="email" class="form-control" name="email" placeholder="Your Email"-->
-<!--                                   required="">-->
-<!--                        </div>-->
-
-<!--                        <div class="col-md-12">-->
-<!--                            <input type="text" class="form-control" name="subject" placeholder="Subject"-->
-<!--                                   required="">-->
-<!--                        </div>-->
-
-<!--                        <div class="col-md-12">-->
-<!--                                    <textarea class="form-control" name="message" rows="4" placeholder="Message"-->
-<!--                                              required=""></textarea>-->
-<!--                        </div>-->
-
-<!--                        <div class="col-md-12 text-center">-->
-<!--                            <div class="loading">Siunčiama</div>-->
-<!--                            <div class="error-message"></div>-->
-<!--                            <div class="sent-message">Jūsų žinutė buvo išsiųstą. Ačiū.</div>-->
-
-<!--                            <button type="submit">Siųsti</button>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
             {% endif %}
         </div>
     </div>

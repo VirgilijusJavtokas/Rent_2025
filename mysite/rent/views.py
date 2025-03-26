@@ -309,18 +309,21 @@ def reserve_product(request, product_id):
 
     # Validate input
     if not status_id or not start_date or not end_date:
-        return HttpResponseBadRequest("Trūksta būsenos arba datos parametrų!")
+        messages.error(request, "Nepasirinkta prekė arba trūksta datos parametrų!")
+        return redirect('product', product_id=product_id)
 
     # Convert date strings to date objects
     try:
         start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
         end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
     except ValueError:
-        return HttpResponseBadRequest("Netinkamos datos reikšmės!")
+        messages.error(request, "Netinkamos datos reikšmės!")
+        return redirect('product', product_id=product_id)
 
     # Ensure start_date <= end_date
     if start_date > end_date:
-        return HttpResponseBadRequest("Pradžios data negali būti vėlesnė už pabaigos datą!")
+        messages.error(request, "Pradžios data negali būti vėlesnė už pabaigos datą!")
+        return redirect('product', product_id=product_id)
 
     # Get the product and status
     product = get_object_or_404(Product, id=product_id)
@@ -345,18 +348,16 @@ def reserve_product(request, product_id):
     )
 
     # Success message and redirect
-    messages.info(request, "Jūsų rezervacija buvo išsaugota ir laukia patvirtinimo!")
+    messages.info(request, "Jūsų rezervacija buvo išsaugota ir laukia patvirtinimo! Jums bus atsiųsta informacija apie apmokėjimą.")
     return redirect('my_reservations')
 
 def approve_reservation(request, status_pk, pk):
     # Get the reservation by reservation ID (pk) and status ID (status_pk)
     reservation = get_object_or_404(Reservation, pk=pk, status_id=status_pk)
 
-    # Approve the reservation
     reservation.is_approved = True
     reservation.save()
-    messages.success(request, f"Rezervacija sėkmingai patvirtinta! ({reservation.start_date} - {reservation.end_date})")
+    messages.info(request, "Rezervacija sėkmingai patvirtinta!")
 
-    # Redirect back to the status detail view
     return redirect('single_status', pk=status_pk)
 
