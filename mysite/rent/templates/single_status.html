@@ -12,7 +12,7 @@
         <p>{{ single_status.product.name }}<br></p>
     </div>
 
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="250">
         <div class="content ps-0 ps-lg-5">
             <ul class="pt-2">
                 <li><strong>Id.nr.: </strong> {{ single_status.uuid|slice:":6" }}
@@ -27,24 +27,32 @@
                 </div>
                 <li></li>
                 <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
-                <li><strong>Rezervacijos: </strong>
+                <li><h4>Rezervacijos: </h4>
                     {% if single_status.reservations_status.all %}
                     <ul>
                         {% for reservation in single_status.reservations_status.all %}
+                        {% if not reservation.is_approved %}
                         <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}
+                            :
+                            <span class="text-danger"><strong> Nepatvirtinta</strong></span>
+                            <a class="btn btn-success register-button" href="{% url 'reservation_approve' status_pk=single_status.pk pk=reservation.pk %}"
+                               style="margin-left: 10px;">Patvirtinti</a>
                         </li>
                         <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' status_pk=single_status.pk pk=reservation.pk %}">Redaguoti</a>
-                            <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a></li>
-                        {% if not reservation.is_approved %}
-                        <span class="text-danger">Nepatvirtinta</span>
-                        <a class="btn btn-success btn-sm" href="{% url 'reservation_approve' status_pk=single_status.pk pk=reservation.pk %}"
-                           style="margin-left: 10px;">Patvirtinti</a>
+                            <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a>
+
+                        </li>
                         {% else %}
-                        <span class="text-success">Patvirtinta</span>
+                        <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}
+                            :
+                            <span class="text-success"><strong> Patvirtinta</strong></span>
+                        </li>
+                        <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' status_pk=single_status.pk pk=reservation.pk %}">Redaguoti</a>
+                            <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a>
 
-                        {% endif %}
+                            {% endif %}
 
-                        {% endfor %}
+                            {% endfor %}
                     </ul>
                     {% else %}
                     Nėra susietų rezervacijų
