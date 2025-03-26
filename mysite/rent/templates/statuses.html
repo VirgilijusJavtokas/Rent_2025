@@ -13,35 +13,53 @@
             <h2>Prekės</h2>
             <p>Nuomos prekių būklės<br></p>
         </div>
-        <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
 
-            <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'status_new' %}">Nauja prekė</a>
-            <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
+                <a class="btn btn-primary register-button" style="background-color: #ff4a17; border-color: #ff4a17;" href="{% url 'status_new' %}">Nauja prekė</a>
+                <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
 
-            {% regroup statuses by product.name as grouped_statuses %}
+                {% regroup statuses by product.name as grouped_statuses %}
 
-            <!-- Iteruojame grupėmis -->
-            {% for group in grouped_statuses %}
-            <div style="margin: 10px 0; padding: 10px;">
-                <!-- Grupės pavadinimas -->
-                <h3 style="color: #ff4a17;">{{ group.grouper }}</h3>
+                <!-- Iteruojame grupėmis -->
+                {% for group in grouped_statuses %}
+                <div style="margin: 10px 0; padding: 10px;">
+                    <!-- Grupės pavadinimas -->
+                    <h3 style="color: #ff4a17;">{{ group.grouper }}</h3>
 
-                <!-- Iteruojame kiekvieno produkto statusus -->
-                {% for status in group.list %}
-                <a href="{% url 'single_status' status.pk %}">
-                    <p class="{% if status.condition == 'i' %}text-danger{% elif status.condition == 'g' %}text-success
+                    <!-- Iteruojame kiekvieno produkto statusus -->
+                    {% for status in group.list %}
+                    <a href="{% url 'single_status' status.pk %}">
+                        <p class="{% if status.condition == 'i' %}text-danger{% elif status.condition == 'g' %}text-success
                 {% elif status.condition == 'n' %}text-dark{% endif %}">
-                        <strong>Statusas:</strong> {{ status }}
-                    </p>
+                            <strong>Statusas:</strong> {{ status }}</p>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="col-md-6">
+                <h3>Nepatvirtintos rezervacijos:</h3>
+                <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
+
+                <!-- Iteruojame statusus -->
+
+                {% for status in statuses %}
+                {% for reservation in status.reservations_status.all %}
+                {% if not reservation.is_approved %}
+                <a href="{% url 'single_status' status.pk %}">
+                    <p class="text-danger"><strong>{{ status.product.name }} - {{ status.uuid|slice:":6" }} - {{ reservation.customer }}</strong></p>
                 </a>
+                {% endif %}
+                {% endfor %}
                 {% endfor %}
             </div>
-            {% endfor %}
+
 
         </div>
     </div>
-
-</section>
 
 </section>
 
