@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="pridetas sumos rodymas prie mano uzsakymu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Patvarkytas bendras dizainas ir nukreipimai" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,14 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Sudetos grupiu foto ir sutvarkytas Footer">
-      <option name="closed" value="true" />
-      <created>1741264369488</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1741264369488</updated>
     </task>
     <task id="LOCAL-00009" summary="Pridetas produktu puslapis">
       <option name="closed" value="true" />
@@ -481,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742979683255</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Patvarkytas bendras dizainas ir nukreipimai">
+      <option name="closed" value="true" />
+      <created>1742993565374</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1742993565375</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sutvarkytas Register.html dizainas" />
     <MESSAGE value="Pridetas darbuotojui meniu BUKLES kuriame yra visos galimo prekes ir busenos." />
     <MESSAGE value="Sutvarkutas single_status.html atvaizdavimas" />
     <MESSAGE value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
@@ -510,6 +500,7 @@
     <MESSAGE value="Sutvarkytas patvirtinimo puslapis" />
     <MESSAGE value="Statuses puslapyje rodo atskirai bukles kurios turi nepatvirtintu rezervaciju" />
     <MESSAGE value="pridetas sumos rodymas prie mano uzsakymu" />
-    <option name="LAST_COMMIT_MESSAGE" value="pridetas sumos rodymas prie mano uzsakymu" />
+    <MESSAGE value="Patvarkytas bendras dizainas ir nukreipimai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patvarkytas bendras dizainas ir nukreipimai" />
   </component>
 </project>
