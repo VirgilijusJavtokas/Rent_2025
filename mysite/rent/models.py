@@ -109,6 +109,12 @@ class Reservation(models.Model):
     def is_overdue(self):
         return self.end_date and date.today() > self.end_date
 
+    def calculate_total_price(self):
+        if self.start_date and self.end_date and self.status and self.status.product.price:
+            num_days = (self.end_date - self.start_date).days
+            return num_days * self.status.product.price
+        return 0
+
     def __str__(self):
         status_uuid = self.status.uuid if self.status else "No Status"
         return f"Status UUID: {status_uuid} ({self.start_date} - {self.end_date} - {self.customer})"

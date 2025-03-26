@@ -12,7 +12,7 @@
         <p>{{ single_status.product.name }}<br></p>
     </div>
 
-    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="250">
+    <div class="col-lg-10" data-aos="fade-up" data-aos-delay="250">
         <div class="content ps-0 ps-lg-5">
             <ul class="pt-2">
                 <li><strong>Id.nr.: </strong> {{ single_status.uuid|slice:":6" }}
@@ -32,7 +32,7 @@
                     <ul>
                         {% for reservation in single_status.reservations_status.all %}
                         {% if not reservation.is_approved %}
-                        <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}
+                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }}, suma: {{ reservation.calculate_total_price }} €
                             :
                             <span class="text-danger"><strong> Nepatvirtinta</strong></span>
                             <a class="btn btn-success register-button" href="{% url 'reservation_approve' status_pk=single_status.pk pk=reservation.pk %}"
@@ -43,7 +43,7 @@
 
                         </li>
                         {% else %}
-                        <li><i class="bi bi-check-circle-fill"></i>Pradžia: {{ reservation.start_date }}, Pabaiga: {{ reservation.end_date }}, klientas: {{ reservation.customer }}
+                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }}, suma: {{ reservation.calculate_total_price }} €
                             :
                             <span class="text-success"><strong> Patvirtinta</strong></span>
                         </li>

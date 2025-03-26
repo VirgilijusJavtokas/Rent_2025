@@ -26,6 +26,8 @@
                     <p class="{% if reservation.is_overdue %}text-danger{% endif %}">
                         <strong>Grąžinimo data:</strong> {{ reservation.end_date }}
                     </p>
+                          <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
+
                 </div>
                 <hr style="border: none; height: 1px; background-color: #ff4a17" />
                 {% empty %}
@@ -42,7 +44,7 @@
                     <p><strong>Prekė:</strong> {{ reservation.status.uuid|slice:":6" }} - {{ reservation.status.product.name }}</p>
                     <p><strong>Pradžios data:</strong> {{ reservation.start_date }}</p>
                     <p><strong>Pabaigos data:</strong> {{ reservation.end_date }}</p>
-                    <p class="text-muted">Ši rezervacija šiuo metu laukia patvirtinimo iš administratoriaus.</p>
+                     <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
                 </div>
                 <hr style="border: none; height: 1px; background-color: #dc3545;" />
                 {% empty %}

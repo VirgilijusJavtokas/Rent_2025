@@ -62,7 +62,7 @@
                     {{ user.get_username }}</a></li>
                 <li><a href="{% url 'my_reservations' %}">Mano užsakymai</a></li>
                 {% if user.profile.is_employee %}
-                <li><a href="{% url 'statuses' %}">Būklės</a></li>
+                <li><a href="{% url 'statuses' %}">Valdymas</a></li>
                 {% endif %}
                 <li class="nav-link">
                     <form method="post" action="{% url 'logout' %}">
