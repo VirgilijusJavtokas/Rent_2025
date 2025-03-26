@@ -66,7 +66,7 @@
                             {% endfor %}
                             {% if not user.is_authenticated %}
                             <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
-                        <li><h5 style="color: #ff4a17;"><strong>DĖMESIO: jei norite rezervuoti prekes - prašome registruotis ir prisijungti.</strong></h5></li>
+                        <li><h5><strong>DĖMESIO: Jei norite rezervuoti prekes - prašome <a href="{% url 'register'%}">registruotis</a> ir/arba <a href="{% url 'login'%}">prisijungti.</a></strong></h5></li>
                         {% endif %}
                         {% else %}
                         <p class="text-danger">Šiuo metu neturime šios prekės</p>

@@ -133,7 +133,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'rent/media')
 
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/rent/my-reservations/'
 
 LOGOUT_REDIRECT_URL = '/'
 

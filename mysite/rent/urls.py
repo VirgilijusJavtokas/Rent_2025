@@ -1,13 +1,11 @@
 from django.urls import path
-from .views import index, products, product, search
 from .import views
-from django.urls import include
 
 
 urlpatterns = [
-    path("", index, name="index"),
-    path("products/", products, name="products"),
-    path("product/<int:product_id>", product, name="product"),
+    path("", views.index, name="index"),
+    path("products/", views.products, name="products"),
+    path("product/<int:product_id>", views.product, name="product"),
     path("search/", views.search, name="search"),
     path("register/", views.register, name="register"),
     path('profile/', views.profile, name='profile'),

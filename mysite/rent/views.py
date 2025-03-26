@@ -1,8 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 from datetime import datetime
 
 from .models import Group, Product, Status, Reservation
@@ -277,6 +277,7 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
     template_name = "reservation_delete.html"
     context_object_name = "reservation"
 
+
     def get_object(self, queryset=None):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
         return reservation
@@ -298,6 +299,7 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
     def test_func(self):
         # Tikrina, ar vartotojas yra darbuotojas, kaip ir kitose klasėse
         return self.request.user.profile.is_employee
+
 
     # pridetas krepselio funkcijos
 @login_required

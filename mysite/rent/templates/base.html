@@ -9,10 +9,6 @@
     <meta name="keywords" content="">
     {% load static %}
 
-    <!-- Favicons -->
-    <link href="{% static 'img/favicon.png' %}" rel="icon">
-    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -27,8 +23,8 @@
     <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
     <!-- Main CSS File -->
-
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
 </head>
 
 <body class="index-page">
@@ -37,8 +33,6 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="#hero" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="static/img/logo.png" alt=""> -->
             <h1 class="sitename" style="margin-left: 20px; color: #5baefc;">Mėlyna zona</h1>
         </a>
 
@@ -46,7 +40,7 @@
             <ul>
                 <li><a href="#hero" class="active">Pradžia</a></li>
                 <li><a href="#about">Apie</a></li>
-                <li><a href="#services">Prekės</a></li>
+                <li><a href="{% url 'products'%}">Prekės</a></li>
                 <li><a href="#features">Taisyklės</a></li>
                 <li><a href="#team">Komanda</a></li>
                 <li><a href="#contact">Kontaktai</a></li>
@@ -74,8 +68,8 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Prisijungti</a></li>
                 {% endif %}
 
-                <form class="d-flex ms-auto" action="{% url 'search' %}" method="get">
-                    <input class="form-control me-5" type="text" name="query" placeholder="Paieška">
+                <form class="d-flex" action="{% url 'search' %}" method="get">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Paieška">
                 </form>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -95,7 +89,7 @@
             <h2 data-aos="fade-up" data-aos-delay="100">PLANUOK. NUOMUOK. ŠVĘSK.</h2>
             <p data-aos="fade-up" data-aos-delay="200" style="font-family: 'Snell Roundhand', cursive; font-size: 48px;
 "
->yra ir bus ką prisiminti</p>
+            >yra ir bus ką prisiminti</p>
             <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
                 <a href="#services" class="btn-get-started">Rinktis</a>
                 <a href="{% static 'img/klipas.mp4' %}"
@@ -293,7 +287,7 @@
     <!-- Features Section -->
     <section id="features" class="features section light-background">
 
-              <!-- Section Title -->
+        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Taisyklės</h2>
             <p>NUOMOS TAISYKLĖS</p>
@@ -383,7 +377,8 @@
                                 </li>
                                 <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span>
                                 </li>
-                                <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span>
+                                <li><i class="bi bi-check2-all"></i>
+                                    <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span>
                                 </li>
                                 <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span>
                                 </li>
@@ -411,7 +406,8 @@
                                 </li>
                                 <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span>
                                 </li>
-                                <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span>
+                                <li><i class="bi bi-check2-all"></i>
+                                    <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span>
                                 </li>
                             </ul>
                             <p class="fst-italic">
