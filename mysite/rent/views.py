@@ -17,6 +17,7 @@ from .forms import UserUpdateForm, ProfileUpdateForm, ReservationCreateUpdateFor
 from django.core.mail import send_mail
 
 
+# Naujo vartotojo registracija
 @csrf_protect
 def register(request):
     if request.method == "POST":
@@ -53,6 +54,8 @@ def register(request):
             return redirect('register')
     return render(request, 'register.html')
 
+
+# Funkcija atsakinga už vartotojo profilio peržiūrą ir atnaujinimą.
 @login_required
 def profile(request):
     if request.method == "POST":
@@ -71,7 +74,6 @@ def profile(request):
             messages.info(request, f"Profilis atnaujintas")
             return redirect('profile')
 
-
     u_form = UserUpdateForm(instance=request.user)
     p_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
@@ -81,6 +83,8 @@ def profile(request):
     return render(request, "profile.html", context=context)
 
 
+# Funkcija surenka bendrą informaciją apie produktų, grupių, statusų ir vartotojų skaičių iš duomenų bazės.
+# Paruošia šiuos duomenis kaip kontekstą ir perduoda juos šablonui `base.html`.
 def index(request):
     num_products = Product.objects.all().count()
     num_groups = Group.objects.all().count()
@@ -95,6 +99,10 @@ def index(request):
     }
     return render(request, 'base.html', context)
 
+
+# Funkcija surenka visus produktus ir juos suskirsto į grupes pagal kategorijas.
+# Kiekvienai kategorijai nustato puslapiavimą po 3 produktus puslapyje.
+# Paruoštą kontekstą perduoda šablonui `products.html` atvaizdavimui.
 def products(request):
     all_products = Product.objects.all()
 
@@ -123,17 +131,20 @@ def products(request):
     return render(request, 'products.html', context)
 
 
+# # Funkcija pateikia konkretaus produkto informaciją
 def product(request, product_id):
     product = Product.objects.prefetch_related('product_status__reservations_status').get(id=product_id)
 
-    context = {"product": product,}
+    context = {"product": product, }
     return render(request, 'product.html', context)
 
 
+# Funkcija vykdo produkto paiešką pagal užklausos parametrus ir grąžina rezultatus į šabloną
 def search(request):
     query = request.GET.get('query')
-    product_search_result = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(group__name__icontains=query) | Q(product_status__uuid__icontains=query)
-)
+    product_search_result = Product.objects.filter(
+        Q(name__icontains=query) | Q(description__icontains=query) | Q(group__name__icontains=query) | Q(product_status__uuid__icontains=query)
+        )
     context = {
         'query': query,
         'products': product_search_result,
@@ -141,26 +152,30 @@ def search(request):
     return render(request, 'search.html', context)
 
 
+# ListViews'as tvaizduoja sąrašą Status modelio objektų šablone statuses.html.
+# Klasė taip pat užtikrina, kad vartotojas būtų prisijungęs ir turėtų darbuotojo teises.
 class StatusListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
-     model = Status
-     template_name = "statuses.html"
-     context_object_name = "statuses"
-     ordering = ["product", "-created_at"]
-     statuses = Status.objects.all().order_by('product__name')  # Rikiuojama pagal 'product.name'
+    model = Status
+    template_name = "statuses.html"
+    context_object_name = "statuses"
+    ordering = ["product", "-created_at"]
+    statuses = Status.objects.all().order_by('product__name')  # Rikiuojama pagal 'product.name'
 
-     def test_func(self):
-         return self.request.user.profile.is_employee
+    def test_func(self):
+        return self.request.user.profile.is_employee
 
 
+# DetailViews'as skirtas atvaizduoti vieno konkretaus Status objekto detales. Prieiga leidžiama tik prisijungusiems darbuotojams.
 class StatusDetailView(LoginRequiredMixin, UserPassesTestMixin, generic.DetailView):
     model = Status
     template_name = "single_status.html"
     context_object_name = "single_status"
 
     def test_func(self):
-         return self.request.user.profile.is_employee
+        return self.request.user.profile.is_employee
 
 
+# CreateView'aas, skirtas sukurti naują Status objektą. Prieiga leidžiama tik prisijungusiems darbuotojams.
 class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Status
     template_name = "status_form.html"
@@ -171,10 +186,12 @@ class StatusCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
         return self.request.user.profile.is_employee
 
 
+# Vaizdas, skirtas redaguoti esamą Status objektą. Prieiga leidžiama tik prisijungusiems darbuotojams.
 class StatusUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Status
     template_name = "status_form.html"
     fields = ['product', 'condition']
+
     # success_url = "/rent/statuses/"
 
     def form_valid(self, form):
@@ -184,10 +201,13 @@ class StatusUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
     def test_func(self):
         return self.request.user.profile.is_employee
 
+    # Funkcija nukreipia vartotoją į tam tikro Status objekto detalų puslapį pagal jo `pk`.
     def get_success_url(self):
         return reverse('single_status', kwargs={'pk': self.kwargs['pk']})
 
 
+# DeleteView'sas, skirtas ištrinti esamą Status objektą. Prieiga leidžiama tik prisijungusiems darbuotojams,
+# o po sėkmingo ištrinimo vartotojas nukreipiamas į statusų sąrašą.
 class StatusDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Status
     template_name = "status_confirm_delete.html"
@@ -199,6 +219,8 @@ class StatusDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
     def get_success_url(self):
         return reverse('statuses')
 
+
+# ListView'sas skirtas atvaizduoti prisijungusio vartotojo rezervacijas. Pateikiamos atskirai patvirtintos ir laukiančios rezervacijos.
 class ReservationListView(LoginRequiredMixin, generic.ListView):
     model = Reservation
     template_name = "my_reservations.html"
@@ -215,7 +237,7 @@ class ReservationListView(LoginRequiredMixin, generic.ListView):
         ).order_by('start_date')
         return context
 
-
+# CreateView'sas, skirtas sukurti naują rezervaciją konkrečiam Status objektui. Prieiga leidžiama tik prisijungusiems darbuotojams.
 class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Reservation
     template_name = "reservation_form.html"
@@ -223,15 +245,13 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Gaukite susijusį `Status` objektą pagal perduotą `pk`
+        # Gauna susijusį `Status` objektą pagal perduotą `pk`
         status = Status.objects.get(pk=self.kwargs['pk'])
 
-        # Pridėkite reikalingus duomenis į kontekstą
+        # Prideda reikalingus duomenis į kontekstą
         context['status'] = status
         context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
-
         return context
-
 
     def form_valid(self, form):
         form.instance.status_id = self.kwargs['pk']
@@ -243,6 +263,7 @@ class ReservationCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cre
     def test_func(self):
         return self.request.user.profile.is_employee
 
+# UpdateView'sas, skirtas redaguoti esamą rezervaciją. Prieiga leidžiama tik prisijungusiems darbuotojams,
 class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Reservation
     template_name = "reservation_form.html"
@@ -261,10 +282,11 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Upd
     def get_success_url(self):
         return reverse('single_status', kwargs={'pk': self.kwargs['status_pk']})
 
+    # Metodas, skirtas papildyti kontekstą rezervacijos ir susijusio Status objekto informacija, įskaitant produkto pavadinimą.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        reservation = self.get_object() # Gauti rezervacijos objektą
-        status = reservation.status # Gauti susijusį Status objektą per užsienio raktą
+        reservation = self.get_object()  # Gauti rezervacijos objektą
+        status = reservation.status  # Gauti susijusį Status objektą per užsienio raktą
         # Įtraukti Status objektą ir produkto pavadinimą į kontekstą
         context['status'] = status
         context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
@@ -273,12 +295,11 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Upd
     def test_func(self):
         return self.request.user.profile.is_employee
 
-
+# DeleteView'sas, skirtas istrinti esamą rezervaciją. Prieiga leidžiama tik prisijungusiems darbuotojams,
 class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Reservation
     template_name = "reservation_delete.html"
     context_object_name = "reservation"
-
 
     def get_object(self, queryset=None):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
@@ -289,7 +310,7 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
         reservation = self.get_object()
         status = reservation.status
 
-        # Įtraukti papildomą informaciją į kontekstą
+        # Įtraukia papildomą informaciją į kontekstą
         context['status'] = status
         context['product_name'] = status.product.name if status.product else "Produkto pavadinimas nerastas"
         context['reservation_pk'] = reservation.pk
@@ -299,11 +320,11 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
         return reverse('single_status', kwargs={'pk': self.object.status.pk})
 
     def test_func(self):
-        # Tikrina, ar vartotojas yra darbuotojas, kaip ir kitose klasėse
         return self.request.user.profile.is_employee
 
 
-    # pridetas krepselio funkcijos
+# Funkcija, skirta sukurti produkto rezervaciją, įskaitant datos validaciją, rezervacijų dubliavimo patikrinimą ir
+# informavimo el. laiško siuntimą administratoriui.
 @login_required
 def reserve_product(request, product_id):
     # Get the GET parameters
@@ -311,12 +332,12 @@ def reserve_product(request, product_id):
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
 
-    # Validate input
+    # Tikrina, ar visi parametrai yra nurodyti
     if not status_id or not start_date or not end_date:
         messages.error(request, "Nepasirinkta prekė arba trūksta datos parametrų!")
         return redirect('product', product_id=product_id)
 
-    # Convert date strings to date objects
+   # Konvertuoja datas į `datetime.date` objektus
     try:
         start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
         end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
@@ -324,16 +345,16 @@ def reserve_product(request, product_id):
         messages.error(request, "Netinkamos datos reikšmės!")
         return redirect('product', product_id=product_id)
 
-    # Ensure start_date <= end_date
+    # Tikrina, ar pradžios data nėra vėlesnė už pabaigos datą
     if start_date > end_date:
         messages.error(request, "Pradžios data negali būti vėlesnė už pabaigos datą!")
         return redirect('product', product_id=product_id)
 
-    # Get the product and status
+    # Gauna prekę ir jos statusą pagal ID
     product = get_object_or_404(Product, id=product_id)
     status = get_object_or_404(Status, id=status_id, product=product)
 
-    # Check for overlapping reservations
+    # Tikrina, ar prekė yra užimta nurodytu laikotarpiu
     if Reservation.objects.filter(
             status=status,
             start_date__lte=end_date,
@@ -342,17 +363,17 @@ def reserve_product(request, product_id):
         messages.error(request, "Ši prekė užimta nurodytu laikotarpiu!")
         return redirect('product', product_id=product_id)
 
-    # Create the reservation with is_approved=False
+    # Sukuria naują rezervaciją
     Reservation.objects.create(
         status=status,
         start_date=start_date,
         end_date=end_date,
         customer=request.user,
-        is_approved=False  # Mark the reservation as pending admin approval
+        is_approved=False # Nustato, kad rezervacija laukia patvirtinimo
     )
 
-    # Send email to the admin with reservation information
-    admin_email = "admin@gmail.com"  # Replace with your admin email address
+    # Siunčia el. laišką administratoriui apie naują rezervaciją
+    admin_email = "admin@gmail.com"  # Reikia pakeisti į tinkamą el. pašto adresą
     subject = "Nauja rezervacija"
     message = (
         f"Klientas {request.user.username} pateikė rezervacijos prašymą.\n\n"
@@ -365,15 +386,16 @@ def reserve_product(request, product_id):
     send_mail(
         subject,
         message,
-        "no-reply@example.com",  # Replace with a valid sender email (e.g., your website email)
+        "no-reply@example.com",  # Reikia pakeisti į tinkamą el. pašto adresą iš kurio siunčiamas laiškas
         [admin_email],
         fail_silently=False,
     )
 
-    # Success message and redirect
+    # Praneša vartotojui apie sėkmingą rezervacijos išsaugojimą
     messages.info(request, "Jūsų rezervacija buvo išsaugota ir laukia patvirtinimo! Jums bus atsiųsta informacija apie apmokėjimą.")
     return redirect('my_reservations')
 
+# Funkcija, skirta patvirtinti rezervaciją, atnaujinant jos būseną į „patvirtinta“ ir informuojant vartotoją.
 def approve_reservation(request, status_pk, pk):
     # Get the reservation by reservation ID (pk) and status ID (status_pk)
     reservation = get_object_or_404(Reservation, pk=pk, status_id=status_pk)
@@ -383,4 +405,3 @@ def approve_reservation(request, status_pk, pk):
     messages.info(request, "Rezervacija sėkmingai patvirtinta!")
 
     return redirect('single_status', pk=status_pk)
-

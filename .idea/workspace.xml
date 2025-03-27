@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Atnaujintas settings.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,14 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Sutvarkytos nuorodos i PRODUCTS puslapi">
-      <option name="closed" value="true" />
-      <created>1741271730727</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1741271730727</updated>
     </task>
     <task id="LOCAL-00012" summary="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja">
       <option name="closed" value="true" />
@@ -479,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1743058892621</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Atnaujintas settings.py">
+      <option name="closed" value="true" />
+      <created>1743062666298</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1743062666298</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
     <MESSAGE value="statuses.html prideta galimybe kurti nauja prekės būseną" />
     <MESSAGE value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
     <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
@@ -508,6 +503,7 @@
     <MESSAGE value="Patvarkytas bendras dizainas ir nukreipimai" />
     <MESSAGE value="Products puslapyje nuorodos veikia ir ant paveiksliuku" />
     <MESSAGE value="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu" />
+    <MESSAGE value="Atnaujintas settings.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atnaujintas settings.py" />
   </component>
 </project>
