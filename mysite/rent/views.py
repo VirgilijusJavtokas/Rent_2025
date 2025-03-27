@@ -395,9 +395,9 @@ def reserve_product(request, product_id):
     messages.info(request, "Jūsų rezervacija buvo išsaugota ir laukia patvirtinimo! Jums bus atsiųsta informacija apie apmokėjimą.")
     return redirect('my_reservations')
 
-# Funkcija, skirta patvirtinti rezervaciją, atnaujinant jos būseną į „patvirtinta“ ir informuojant vartotoją.
+# Funkcija, skirta patvirtinti rezervaciją, atnaujinant jos būseną į „patvirtinta“ ir parodo pranešimą.
 def approve_reservation(request, status_pk, pk):
-    # Get the reservation by reservation ID (pk) and status ID (status_pk)
+    # Gauna rezervacijos ID (pk) ir status ID (status_pk)
     reservation = get_object_or_404(Reservation, pk=pk, status_id=status_pk)
 
     reservation.is_approved = True

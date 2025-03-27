@@ -7,8 +7,6 @@ from tinymce.models import HTMLField
 from PIL import Image, ImageOps, ImageDraw
 
 
-# Create your models here.
-
 # Modelis, skirtas vartotojo profiliui aprašyti, įskaitant nuotraukos išsaugojimą, apdorojimą
 # (apkarpymą į kvadratą ir užapvalinimą) bei papildomus laukus, tokius kaip darbuotojo statusas.
 class Profile(models.Model):
