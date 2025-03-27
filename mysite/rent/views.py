@@ -14,6 +14,8 @@ from django.contrib import messages
 from django.contrib.auth import password_validation
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm, ReservationCreateUpdateForm
+from django.core.mail import send_mail
+
 
 @csrf_protect
 def register(request):
@@ -347,6 +349,25 @@ def reserve_product(request, product_id):
         end_date=end_date,
         customer=request.user,
         is_approved=False  # Mark the reservation as pending admin approval
+    )
+
+    # Send email to the admin with reservation information
+    admin_email = "admin@gmail.com"  # Replace with your admin email address
+    subject = "Nauja rezervacija"
+    message = (
+        f"Klientas {request.user.username} pateikė rezervacijos prašymą.\n\n"
+        f"Prekė: {product.name}\n"
+        f"Prekės numeris: {status.uuid}\n"
+        f"Rezervacijos laikotarpis: {start_date} - {end_date}\n"
+        f"Kliento el. paštas: {request.user.email}\n\n"
+        f"Prašome rezervaciją patvirtinti ar atmesti sistemoje."
+    )
+    send_mail(
+        subject,
+        message,
+        "no-reply@example.com",  # Replace with a valid sender email (e.g., your website email)
+        [admin_email],
+        fail_silently=False,
     )
 
     # Success message and redirect

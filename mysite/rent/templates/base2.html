@@ -55,7 +55,12 @@
                     {{ user.get_username }}</a></li>
                 <li><a href="{% url 'my_reservations' %}">Mano užsakymai</a></li>
                 {% if user.profile.is_employee %}
-                <li><a href="{% url 'statuses' %}">Valdymas</a></li>
+                <li>
+                    <a href="{% url 'statuses' %}"
+                       style="{% for status in statuses %}{% for reservation in status.reservations_status.all %}{% if not reservation.is_approved %}color: red;{% endif %}{% endfor %}{% endfor %}">
+                        Valdymas
+                    </a>
+                </li>
                 {% endif %}
                 <li class="nav-link">
                     <form method="post" action="{% url 'logout' %}">
