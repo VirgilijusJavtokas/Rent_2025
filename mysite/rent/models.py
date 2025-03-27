@@ -8,6 +8,9 @@ from PIL import Image, ImageOps, ImageDraw
 
 
 # Create your models here.
+
+# Modelis, skirtas vartotojo profiliui aprašyti, įskaitant nuotraukos išsaugojimą, apdorojimą
+# (apkarpymą į kvadratą ir užapvalinimą) bei papildomus laukus, tokius kaip darbuotojo statusas.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.ImageField(default="default.png", upload_to="profile_pics")
@@ -37,7 +40,7 @@ class Profile(models.Model):
         verbose_name = "Profilis"
         verbose_name_plural = "Profiliai"
 
-
+# Modelis, skirtas aprašyti produktų grupę, kuri gali turėti daug produktų.
 class Group(models.Model):
     name = models.CharField(verbose_name="Produktų grupė", max_length=100, help_text="Įveskite produktų grupės pavadinimą")
 
@@ -48,6 +51,7 @@ class Group(models.Model):
         verbose_name = "Produktų grupė"
         verbose_name_plural = "Produktų grupės"
 
+# Modelis, skirtas aprašyti produktą, kuris gali turėti daug būsenų, kurių kiekviena gali turėti daug rezervacijų.
 class Product(models.Model):
     name = models.CharField(verbose_name="Pavadinimas", max_length=100)
     price = models.IntegerField(verbose_name="Kaina", null=True, blank=True, help_text="Paros nuomos kaina")
@@ -66,7 +70,7 @@ class Product(models.Model):
         verbose_name_plural = "Produktai"
         ordering = ['inv_no']
 
-
+# Modelis, skirtas aprašyti produkto būseną, kuri gali turėti daug rezervacijų.
 class Status(models.Model):
     uuid = ShortUUIDField(help_text='Unikalus ID vienodams produktams')
     product = models.ForeignKey(to="Product", null=True, blank=True, on_delete=models.CASCADE, verbose_name="Produktas", related_name="product_status")
@@ -92,7 +96,7 @@ class Status(models.Model):
     def __str__(self):
         return f"{str(self.uuid)[:6]} - {self.get_condition_display()}"
 
-
+# Moddelis, skirtas rezervacijai aprašyti.
 class Reservation(models.Model):
     status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='reservations_status',null=True, blank=True)
     start_date = models.DateField(verbose_name="Nuomos pradžios data", null=True, blank=True)

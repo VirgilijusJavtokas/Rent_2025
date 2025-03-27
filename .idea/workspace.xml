@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Atnaujintas settings.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="views.py pridetos anotacijos">
+      <change beforePath="$PROJECT_DIR$/mysite/rent/media/profile_pics/minicar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/starter-page.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,14 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Sukurtas PRODUCT puslapis ir ka jis atvaizduoja">
-      <option name="closed" value="true" />
-      <created>1741353167875</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1741353167876</updated>
     </task>
     <task id="LOCAL-00013" summary="Padarytas puslapiavimas PRODUCTS.html">
       <option name="closed" value="true" />
@@ -475,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1743062666298</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="views.py pridetos anotacijos">
+      <option name="closed" value="true" />
+      <created>1743066862253</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1743066862254</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="statuses.html prideta galimybe kurti nauja prekės būseną" />
     <MESSAGE value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
     <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
     <MESSAGE value="Prideta galimybe redaguoti preke single_status.html" />
@@ -504,6 +503,7 @@
     <MESSAGE value="Products puslapyje nuorodos veikia ir ant paveiksliuku" />
     <MESSAGE value="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu" />
     <MESSAGE value="Atnaujintas settings.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atnaujintas settings.py" />
+    <MESSAGE value="views.py pridetos anotacijos" />
+    <option name="LAST_COMMIT_MESSAGE" value="views.py pridetos anotacijos" />
   </component>
 </project>
