@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Products puslapyje nuorodos veikia ir ant paveiksliuku">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,14 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Produktu puslapyje rodo prekes pagal grupes">
-      <option name="closed" value="true" />
-      <created>1741271229717</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1741271229717</updated>
     </task>
     <task id="LOCAL-00011" summary="Sutvarkytos nuorodos i PRODUCTS puslapi">
       <option name="closed" value="true" />
@@ -477,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1742994771101</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu">
+      <option name="closed" value="true" />
+      <created>1743058892620</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1743058892621</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sutvarkutas single_status.html atvaizdavimas" />
     <MESSAGE value="Rezervaciju modelyje pridetas customer. Ji rodo Bukliu lauke" />
     <MESSAGE value="statuses.html prideta galimybe kurti nauja prekės būseną" />
     <MESSAGE value="galima kurti nauja rezervacija, bet numeta ne i ta puslapi" />
@@ -506,6 +507,7 @@
     <MESSAGE value="pridetas sumos rodymas prie mano uzsakymu" />
     <MESSAGE value="Patvarkytas bendras dizainas ir nukreipimai" />
     <MESSAGE value="Products puslapyje nuorodos veikia ir ant paveiksliuku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Products puslapyje nuorodos veikia ir ant paveiksliuku" />
+    <MESSAGE value="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pasudus Valdymas jei yra nauju rezervaciju - jis raudonos splavos.&#10;Paspaudus rezervacija issiunciamas meilas admin e-pastu" />
   </component>
 </project>

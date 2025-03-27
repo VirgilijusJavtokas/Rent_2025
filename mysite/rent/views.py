@@ -357,7 +357,7 @@ def reserve_product(request, product_id):
     message = (
         f"Klientas {request.user.username} pateikė rezervacijos prašymą.\n\n"
         f"Prekė: {product.name}\n"
-        f"Prekės numeris: {status.uuid}\n"
+        f"Prekės numeris: {str(status.uuid)[:6]}\n"
         f"Rezervacijos laikotarpis: {start_date} - {end_date}\n"
         f"Kliento el. paštas: {request.user.email}\n\n"
         f"Prašome rezervaciją patvirtinti ar atmesti sistemoje."

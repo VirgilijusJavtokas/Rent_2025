@@ -32,16 +32,23 @@
 <section id="product_description" class="about section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
+
+            <div class="content ps-0 ps-lg-5">
+                <ul class="pt-2">
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
+                    </li>
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Nuomos kaina: </strong> {{ product.price }} Eur/para
+                    </li>
+                    <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong> {{ product.description | safe }}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row align-items-start gy-4">
             <div class="col-lg-6">
                 <div class="content ps-0 ps-lg-5">
                     <ul class="pt-2">
-                        <li><i class="bi bi-check-circle-fill"></i><strong>Turimas kiekis: </strong> {{ product.quantity }}
-                        </li>
-                        <li><i class="bi bi-check-circle-fill"></i><strong>Nuomos kaina: </strong> {{ product.price }} Eur/para
-                        </li>
-                        <li><i class="bi bi-check-circle-fill"></i><strong>Aprašymas: </strong> {{ product.description | safe }}
-                        </li>
-
                         <li><i class="bi bi-check-circle-fill"></i><strong>Prekių sąrašas: </strong>
                             <p></p>
                             {% if product.product_status.all %}
@@ -66,7 +73,8 @@
                             {% endfor %}
                             {% if not user.is_authenticated %}
                             <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
-                        <li><h5><strong>DĖMESIO: Jei norite rezervuoti prekes - prašome <a href="{% url 'register'%}">registruotis</a> ir/arba <a href="{% url 'login'%}">prisijungti.</a></strong></h5></li>
+                        <li><h5><strong>DĖMESIO: Jei norite rezervuoti prekes - prašome <a href="{% url 'register'%}">registruotis</a> ir/arba <a href="{% url 'login'%}">prisijungti.</a></strong>
+                        </h5></li>
                         {% endif %}
                         {% else %}
                         <p class="text-danger">Šiuo metu neturime šios prekės</p>
@@ -78,9 +86,9 @@
                 </div>
             </div>
             {% if user.is_authenticated %}
-            <div class="col-lg-6 contact section align-items-center">
-                <p>
-                <h2>Rezervacija:</h2></p>
+         <div class="col-lg-6 contact section align-items-center">
+
+                <h2>Rezervacija:</h2>
                 <p class="text-danger"><strong>DĖMESIO: būtina nurodyti pasirinktos prekės Nr. ir norimas rezervacijos datas!</strong></p>
                 <form method="GET" action="{% url 'reservation_new' product.id %}">
                     <div class="row gy-4">
