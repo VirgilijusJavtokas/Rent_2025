@@ -25,7 +25,10 @@
                 {% for group in grouped_statuses %}
                 <div style="margin: 10px 0; padding: 10px;">
                     <!-- Grupės pavadinimas -->
-                    <h3 style="color: #ff4a17;">{{ group.grouper }}</h3>
+                    <h3 style="color: #ff4a17;"><a href="{% url 'reservations_per_status' product_id=group.list.0.product.id %}">
+                        {{ group.grouper }}
+                    </a>
+                    </h3>
 
                     <!-- Iteruojame kiekvieno produkto statusus -->
                     {% for status in group.list %}

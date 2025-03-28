@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="smulkus pataisymai">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas">
+      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/reservations_per_status.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/reservation_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/reservation_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/virgilijusjavtokas/Desktop/PythonProject/Rent_2025/mysite/rent/static/img&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/virgilijusjavtokas/Desktop/PythonProject/Rent_2025/mysite/rent/templates",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mysite/rent/static/img" />
       <recent name="$PROJECT_DIR$/mysite/rent/templates" />
+      <recent name="$PROJECT_DIR$/mysite/rent/static/img" />
       <recent name="$PROJECT_DIR$/mysite/rent/forms" />
       <recent name="$PROJECT_DIR$/mysite/rent/media" />
       <recent name="$PROJECT_DIR$/mysite/rent/media/profile_pics" />
@@ -92,14 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00015" summary="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi">
-      <option name="closed" value="true" />
-      <created>1741620355225</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1741620355225</updated>
     </task>
     <task id="LOCAL-00016" summary="Sumazintas headeris csv faile hero2">
       <option name="closed" value="true" />
@@ -485,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1743076168150</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas">
+      <option name="closed" value="true" />
+      <created>1743143118290</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1743143118291</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prideta galimybe redaguoti preke single_status.html" />
     <MESSAGE value="Prideta galimybe istrinti preke single_status.html" />
     <MESSAGE value="Prideta galimybe redaguoto rezervazija" />
     <MESSAGE value="Pataisyta kai yra daugiau rezervaciju ir tadajas galima redaguoti" />
@@ -514,6 +507,7 @@
     <MESSAGE value="views.py pridetos anotacijos" />
     <MESSAGE value="models.py pridetos anotacijos" />
     <MESSAGE value="smulkus pataisymai" />
-    <option name="LAST_COMMIT_MESSAGE" value="smulkus pataisymai" />
+    <MESSAGE value="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas" />
   </component>
 </project>

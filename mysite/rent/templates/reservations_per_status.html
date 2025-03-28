@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+{% load i18n %}
+
+{% block 'title' %}Valdymas{% endblock %}
+{% load static %}
+
+
+{% block "content" %}
+<section id="my_products" class="services section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Valdymas</h2>
+            <p>Prekės rezervacijos <br></p>
+        </div>
+        <div>
+            <h2>{{ product.name }}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                {% for status in statuses %}
+                    <div style="margin: 10px 0; padding: 10px; border: 1px solid #ddd;">
+                        <h4><a href="{% url 'single_status' status.pk %}">{{ status.uuid|slice:"6" }}:</a></h4>
+                        <p>
+                            <strong>Būsena:</strong>
+                            <span class="text-{% if status.condition == 'g' %}success{% elif status.condition == 'i' %}danger{% else %}muted{% endif %}">
+                                {{ status.get_condition_display }}
+                            </span>
+                        </p>
+
+                        <h5>Rezervacijos:</h5>
+                        <ul>
+                            {% for reservation in status.reservations_status.all %}
+                                <li>
+                                    <strong>Klientas:</strong> {{ reservation.customer }}<br>
+                                    <strong>Data:</strong> {{ reservation.start_date }} - {{ reservation.end_date }}<br>
+                                    <strong>Būsena:</strong>
+                                    {% if reservation.is_approved %}
+                                        <span class="text-success">Patvirtinta: {{ reservation.approval_date }}</span>
+                                    {% else %}
+                                        <span class="text-danger">Nepatvirtinta</span>
+                                    {% endif %}
+                                </li>
+                            {% empty %}
+                                <li>Nėra rezervacijų šiam statusui.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% empty %}
+                    <p class="text-danger">Šis produktas neturi statusų</p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+<

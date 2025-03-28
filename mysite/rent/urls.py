@@ -20,10 +20,5 @@ urlpatterns = [
     path('reservation/<int:status_pk>/<int:pk>/delete/', views.ReservationDeleteView.as_view(), name='reservation_delete'),
     path('product/<int:product_id>/reserve/', views.reserve_product, name='reservation_new'),
     path('reservation/<int:status_pk>/<int:pk>/approve/', views.approve_reservation, name='reservation_approve'),
-
-
-
-
-
-
+    path('product/<int:product_id>/statuses/', views.product_statuses, name='reservations_per_status'),
 ]

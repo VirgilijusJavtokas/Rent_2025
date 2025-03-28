@@ -407,3 +407,18 @@ def approve_reservation(request, status_pk, pk):
     messages.info(request, "Rezervacija sėkmingai patvirtinta!")
 
     return redirect('single_status', pk=status_pk)
+
+
+def product_statuses(request, product_id):
+    # Randa konkretų produktą pagal ID
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Gaukite visus produkto su tuo susijusius statusus
+    statuses = product.product_status.prefetch_related('reservations_status').all()
+
+    context = {
+        'product': product,
+        'statuses': statuses,
+    }
+
+    return render(request, 'reservations_per_status.html', context)
