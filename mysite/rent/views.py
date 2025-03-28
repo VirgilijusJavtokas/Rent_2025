@@ -15,6 +15,7 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm, ReservationCreateUpdateForm
 from django.core.mail import send_mail
+from django.utils.timezone import now
 
 
 # Naujo vartotojo registracija
@@ -401,6 +402,7 @@ def approve_reservation(request, status_pk, pk):
     reservation = get_object_or_404(Reservation, pk=pk, status_id=status_pk)
 
     reservation.is_approved = True
+    reservation.approval_date = now()
     reservation.save()
     messages.info(request, "Rezervacija sėkmingai patvirtinta!")
 

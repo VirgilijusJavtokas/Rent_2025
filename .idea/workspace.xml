@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="models.py pridetos anotacijos">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="smulkus pataisymai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/my_reservations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/reservation_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/reservation_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/single_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/status_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,14 +92,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00014" summary="ideta paieska">
-      <option name="closed" value="true" />
-      <created>1741615940851</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1741615940851</updated>
     </task>
     <task id="LOCAL-00015" summary="padaryta kad produktus atvaizduotu su paveiksleliais ir graziu stiliumi">
       <option name="closed" value="true" />
@@ -479,11 +477,18 @@
       <option name="project" value="LOCAL" />
       <updated>1743067421003</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="smulkus pataisymai">
+      <option name="closed" value="true" />
+      <created>1743076168149</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1743076168150</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rezervacija automatiskai ima pagal status ir atidaro vel ta pati langa" />
     <MESSAGE value="Prideta galimybe redaguoti preke single_status.html" />
     <MESSAGE value="Prideta galimybe istrinti preke single_status.html" />
     <MESSAGE value="Prideta galimybe redaguoto rezervazija" />
@@ -508,6 +513,7 @@
     <MESSAGE value="Atnaujintas settings.py" />
     <MESSAGE value="views.py pridetos anotacijos" />
     <MESSAGE value="models.py pridetos anotacijos" />
-    <option name="LAST_COMMIT_MESSAGE" value="models.py pridetos anotacijos" />
+    <MESSAGE value="smulkus pataisymai" />
+    <option name="LAST_COMMIT_MESSAGE" value="smulkus pataisymai" />
   </component>
 </project>

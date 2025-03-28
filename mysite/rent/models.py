@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from datetime import date
 from tinymce.models import HTMLField
 from PIL import Image, ImageOps, ImageDraw
+from django.utils.timezone import now
+from datetime import date
+
 
 
 # Modelis, skirtas vartotojo profiliui aprašyti, įskaitant nuotraukos išsaugojimą, apdorojimą
@@ -101,6 +104,7 @@ class Reservation(models.Model):
     end_date = models.DateField(verbose_name="Nuomos pabaigos datas", null=True, blank=True)
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Klientas")
     is_approved = models.BooleanField(default=False, verbose_name="Ar patvirtinta", null=True, blank=True)
+    approval_date = models.DateTimeField(verbose_name="Patvirtinimo data", null=True, blank=True)
 
 
     class Meta:
@@ -116,6 +120,12 @@ class Reservation(models.Model):
             num_days = (self.end_date - self.start_date).days
             return num_days * self.status.product.price
         return 0
+
+    def save(self, *args, **kwargs): # Jei rezervacija yra patvirtinta, nustatome patvirtinimo datą
+        if self.is_approved and not self.approval_date:
+            self.approval_date = now()
+        super().save(*args, **kwargs)
+
 
     def __str__(self):
         status_uuid = self.status.uuid if self.status else "No Status"

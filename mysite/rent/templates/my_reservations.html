@@ -18,7 +18,7 @@
             <!-- Approved Reservations: Left Column -->
             <div class="col-md-6">
                 <h3 class="text-success"><strong>Patvirtintos rezervacijos</strong></h3>
-                <hr style="border: none; height: 2px; background-color: #ff4a17" />
+                <hr style="border: none; height: 2px; background-color: #ff4a17"/>
                 {% for reservation in approved_reservations %}
                 <div class="reservation-card">
                     <p><strong>Prekė:</strong> {{ reservation.status.uuid|slice:":6" }} - {{ reservation.status.product.name }}</p>
@@ -26,10 +26,10 @@
                     <p class="{% if reservation.is_overdue %}text-danger{% endif %}">
                         <strong>Grąžinimo data:</strong> {{ reservation.end_date }}
                     </p>
-                          <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
+                    <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
 
                 </div>
-                <hr style="border: none; height: 1px; background-color: #ff4a17" />
+                <hr style="border: none; height: 1px; background-color: #ff4a17"/>
                 {% empty %}
                 <p class="text-muted">Jūs neturite patvirtintų rezervacijų</p>
                 {% endfor %}
@@ -38,15 +38,15 @@
             <!-- Pending Reservations: Right Column -->
             <div class="col-md-6">
                 <h3 class="text-danger"><strong>Laukiama patvirtinimo</strong></h3>
-                <hr style="border: none; height: 2px; background-color: #ff4a17" />
+                <hr style="border: none; height: 2px; background-color: #ff4a17"/>
                 {% for reservation in pending_reservations %}
                 <div class="reservation-card">
                     <p><strong>Prekė:</strong> {{ reservation.status.uuid|slice:":6" }} - {{ reservation.status.product.name }}</p>
                     <p><strong>Pradžios data:</strong> {{ reservation.start_date }}</p>
                     <p><strong>Pabaigos data:</strong> {{ reservation.end_date }}</p>
-                     <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
+                    <p><strong>Rezervacijos suma:</strong> {{ reservation.calculate_total_price }} €</p>
                 </div>
-                <hr style="border: none; height: 1px; background-color: #dc3545;" />
+                <hr style="border: none; height: 1px; background-color: #dc3545;"/>
                 {% empty %}
                 <p class="text-muted">Jūs neturite laukiančių rezervacijų</p>
                 {% endfor %}

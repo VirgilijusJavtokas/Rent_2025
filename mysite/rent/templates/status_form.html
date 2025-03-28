@@ -9,21 +9,21 @@
 {% block "content" %}
 <section id="registration" class="contact section">
 
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title">
         <h2>Prekės</h2>
         <p>Kūrimas/redagavimas</p>
         <p></p>
 
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            {% load crispy_forms_tags %}
-            {{ form|crispy }}
-            <div class="form-group">
-                <button class="btn btn-outline text-white" style="background-color: #ff4a17; border-color: #ff4a17;" type="submit">Išsaugoti</button>
-            </div>
-        </form>
-    </div>
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{ form|crispy }}
+                <div class="form-group">
+                    <button class="btn btn-outline text-white" style="background-color: #ff4a17; border-color: #ff4a17;" type="submit">Išsaugoti</button>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 {% endblock %}

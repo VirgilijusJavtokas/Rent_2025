@@ -53,6 +53,7 @@
                             <p></p>
                             {% if product.product_status.all %}
                             {% for status in product.product_status.all %}
+                            {% if status.condition != "n" %}
                             <p class="{% if status.condition == 'i' or status.condition == 'n' %}text-danger{% elif status.condition == 'g' %}text-success{% endif %}">
                                 Nr.: {{ status.uuid|slice:":6" }}, šiandienos būklė: {{ status.get_condition_display }}
                             </p>
@@ -69,7 +70,7 @@
                                 <li class="text-muted">Nėra rezervacijų</li>
                                 {% endif %}
                             </ul>
-
+                            {% endif %}
                             {% endfor %}
                             {% if not user.is_authenticated %}
                             <hr style="border: none; height: 2px; background-color: #ff4a17;"/>
@@ -86,7 +87,7 @@
                 </div>
             </div>
             {% if user.is_authenticated %}
-         <div class="col-lg-6 contact section align-items-center">
+            <div class="col-lg-6 contact section align-items-center">
 
                 <h2>Rezervacija:</h2>
                 <p class="text-danger"><strong>DĖMESIO: būtina nurodyti pasirinktos prekės Nr. ir norimas rezervacijos datas!</strong></p>
@@ -97,7 +98,7 @@
                             <label for="status_id"><strong>Pasirinkite prekės būseną:</strong></label>
                             <select name="status_id" id="status_id" class="form-control" required>
                                 {% for status in product.product_status.all %}
-                                {% if status.condition == "g" %}
+                                {% if status.condition == "g" or status.condition == "i" %}
                                 <option value="{{ status.id }}">Nr. {{ status.uuid|slice:":6" }} - {{ status.get_condition_display }}</option>
                                 {% endif %}
                                 {% endfor %}

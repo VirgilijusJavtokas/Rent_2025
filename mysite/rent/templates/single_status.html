@@ -32,7 +32,8 @@
                     <ul>
                         {% for reservation in single_status.reservations_status.all %}
                         {% if not reservation.is_approved %}
-                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }}, suma: {{ reservation.calculate_total_price }} €
+                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }},
+                            suma: {{ reservation.calculate_total_price }} €
                             :
                             <span class="text-danger"><strong> Nepatvirtinta</strong></span>
                             <a class="btn btn-success register-button" href="{% url 'reservation_approve' status_pk=single_status.pk pk=reservation.pk %}"
@@ -43,9 +44,10 @@
 
                         </li>
                         {% else %}
-                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }}, suma: {{ reservation.calculate_total_price }} €
+                        <li><i class="bi bi-check-circle-fill"></i>Laikotarpis: {{ reservation.start_date }} - {{ reservation.end_date }}, klientas: {{ reservation.customer }},
+                            suma: {{ reservation.calculate_total_price }} €
                             :
-                            <span class="text-success"><strong> Patvirtinta</strong></span>
+                            <span class="text-success"><strong> Patvirtinta: {{ reservation.approval_date }}</strong></span>
                         </li>
                         <li><a class="btn btn-primary register-button" href="{% url 'reservation_update' status_pk=single_status.pk pk=reservation.pk %}">Redaguoti</a>
                             <a class="btn btn-danger register-button" href="{% url 'reservation_delete' status_pk=reservation.status.pk pk=reservation.pk %}">Ištrinti</a>
