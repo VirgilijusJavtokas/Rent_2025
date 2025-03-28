@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas">
-      <change afterPath="$PROJECT_DIR$/mysite/rent/templates/reservations_per_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/templates/statuses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/rent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/rent/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Valdymas puslapyje galima matyti ir visas rezervacijas pagal preke paspaudus ant jos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,14 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Sumazintas headeris csv faile hero2">
-      <option name="closed" value="true" />
-      <created>1741680220154</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1741680220154</updated>
     </task>
     <task id="LOCAL-00017" summary="Sutvarkytas footer ir header su melyna spalva">
       <option name="closed" value="true" />
@@ -479,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1743143118291</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Valdymas puslapyje galima matyti ir visas rezervacijas pagal preke paspaudus ant jos">
+      <option name="closed" value="true" />
+      <created>1743145298212</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1743145298213</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prideta galimybe istrinti preke single_status.html" />
     <MESSAGE value="Prideta galimybe redaguoto rezervazija" />
     <MESSAGE value="Pataisyta kai yra daugiau rezervaciju ir tadajas galima redaguoti" />
     <MESSAGE value="Prideta galimybe kiekviena rezervacija ištrinti" />
@@ -508,6 +500,7 @@
     <MESSAGE value="models.py pridetos anotacijos" />
     <MESSAGE value="smulkus pataisymai" />
     <MESSAGE value="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridetas datos ir laiko rodymas rezervaciju patvirtinime.&#10;Klientui dabar rodo tik prieinamas rezervacijas" />
+    <MESSAGE value="Valdymas puslapyje galima matyti ir visas rezervacijas pagal preke paspaudus ant jos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Valdymas puslapyje galima matyti ir visas rezervacijas pagal preke paspaudus ant jos" />
   </component>
 </project>
