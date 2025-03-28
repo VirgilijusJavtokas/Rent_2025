@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.http import Http404
+from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from datetime import datetime
@@ -408,8 +408,13 @@ def approve_reservation(request, status_pk, pk):
 
     return redirect('single_status', pk=status_pk)
 
-
+# Funkcija atvaizduoja konkretaus produkto visas prekes su rezervaciju informacija.
+@login_required
 def product_statuses(request, product_id):
+    # Tikrina, ar vartotojo profilis turi 'is_employee' atributą
+    if not getattr(request.user.profile, 'is_employee', False):
+        return HttpResponseForbidden("Jums nesuteiktos teisės prieiti prie šio puslapio.")
+
     # Randa konkretų produktą pagal ID
     product = get_object_or_404(Product, pk=product_id)
 
@@ -422,3 +427,4 @@ def product_statuses(request, product_id):
     }
 
     return render(request, 'reservations_per_status.html', context)
+
