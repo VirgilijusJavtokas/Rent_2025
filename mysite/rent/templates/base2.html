@@ -9,6 +9,9 @@
     <meta name="keywords" content="">
     {% load static %}
 
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -85,14 +88,7 @@
     <!-- Hero Section -->
     <section id="hero2" class="hero2 section dark-background">
 
-        <!--        <img src="{% static 'img/cover2.jpeg' %}" alt="" data-aos="fade-in">-->
-
-        <!--        <div class="container d-flex flex-column align-items-center">-->
-        <!--            <h2 data-aos="fade-up" data-aos-delay="100">{% block 'name' %}{% endblock %}</h2>-->
-        <!--        </div>-->
-
-    </section><!-- /Hero Section -->
-    <main class="main">
+    </section>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-sm">
@@ -109,6 +105,7 @@
         </div>
 
         {% block "content" %}{% endblock %}
+
     </main>
 
     <footer id="footer" class="footer dark-background">

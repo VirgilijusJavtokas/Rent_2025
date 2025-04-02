@@ -30,10 +30,11 @@ class StatusInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'quantity', 'inv_no', 'status_condition']
+    list_display = ['name', 'group', 'quantity', 'inv_no', 'status_condition']
     list_filter = ['name', 'inv_no']
     search_fields = ['name']
     inlines = [StatusInline]
+
 
     def status_condition(self, obj):
         status = Status.objects.filter(product=obj).first()

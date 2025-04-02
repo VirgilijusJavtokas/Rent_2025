@@ -13,24 +13,20 @@
         <h2>Prekių būsenos</h2>
         <p>Trynimas</p>
         <p></p>
-        </div>
-<!--        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">-->
-        <div class="content ps-0 ps-lg-5">
-            <form method="POST">
-                {% load crispy_forms_tags %}
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <h5>Ar tikrai norite ištrinti prekės - {{ single_status.product.name }} - būseną: {{ single_status }}?</h5>
-                </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-danger register-button" type="submit">Taip, ištrinti</button>
-                    <a class="btn btn-primary register-button" href="{% url 'single_status' single_status.pk %}">Atšaukti</a>
-                </div>
-            </form>
-        </div>
-
-
-<!--            </div>-->
+    </div>
+    <div class="content ps-0 ps-lg-5">
+        <form method="POST">
+            {% load crispy_forms_tags %}
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h5>Ar tikrai norite ištrinti prekės - {{ single_status.product.name }} - būseną: {{ single_status }}?</h5>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-danger register-button" type="submit">Taip, ištrinti</button>
+                <a class="btn btn-primary register-button" href="{% url 'single_status' single_status.pk %}">Atšaukti</a>
+            </div>
+        </form>
+    </div>
 
 </section>
 {% endblock %}

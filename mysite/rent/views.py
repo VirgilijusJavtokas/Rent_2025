@@ -296,7 +296,7 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Upd
     def test_func(self):
         return self.request.user.profile.is_employee
 
-# DeleteView'sas, skirtas istrinti esamą rezervaciją. Prieiga leidžiama tik prisijungusiems darbuotojams,
+# DeleteView'sas, skirtas istrinti esamą rezervacij.,
 class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Reservation
     template_name = "reservation_delete.html"
@@ -328,7 +328,6 @@ class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Del
 # informavimo el. laiško siuntimą administratoriui.
 @login_required
 def reserve_product(request, product_id):
-    # Get the GET parameters
     status_id = request.GET.get('status_id')
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')

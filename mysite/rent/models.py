@@ -40,6 +40,8 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "Profilis"
         verbose_name_plural = "Profiliai"
+        ordering = ['user__username']
+
 
 # Modelis, skirtas aprašyti produktų grupę, kuri gali turėti daug produktų.
 class Group(models.Model):
