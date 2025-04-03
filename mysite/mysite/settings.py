@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .my_settings import SECRET_KEY, DEBUG, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, ALLOWED_HOSTS
+from .my_settings2 import SECRET_KEY, DEBUG, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, ALLOWED_HOSTS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
