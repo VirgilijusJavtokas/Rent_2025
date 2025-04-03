@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="pakeistas gitignore failas">
+    <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="Atnaujintas my_settings2.py failas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,14 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Product.html rodo ir visas prekes busenas">
-      <option name="closed" value="true" />
-      <created>1742031534525</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1742031534525</updated>
     </task>
     <task id="LOCAL-00028" summary="Vizualiai sutvarkytas Mano uzsakymai puslapis">
       <option name="closed" value="true" />
@@ -476,7 +467,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743663908360</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Atnaujintas my_settings2.py failas">
+      <option name="closed" value="true" />
+      <created>1743667523918</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1743667523918</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sutvarkytas pradinio puslapio dizainas" />
     <MESSAGE value="prie prekes savybiu prideta kaina" />
     <MESSAGE value="pasalinti nereikaling laukai admin puslapyje" />
     <MESSAGE value="statuses modelyje prideta laukas created_at ir padarytas rusiavimas pagal preke, o po to pagal sukurimo laika" />
@@ -516,6 +514,7 @@
     <MESSAGE value="ideta kontaktu skyriuje nuoroda i google maps ant adreso" />
     <MESSAGE value="kosmetiniaipakeitimai" />
     <MESSAGE value="pakeistas gitignore failas" />
-    <option name="LAST_COMMIT_MESSAGE" value="pakeistas gitignore failas" />
+    <MESSAGE value="Atnaujintas my_settings2.py failas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atnaujintas my_settings2.py failas" />
   </component>
 </project>
