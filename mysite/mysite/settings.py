@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .my_settings2 import SECRET_KEY, DEBUG, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, ALLOWED_HOSTS
+from .my_settings2 import SECRET_KEY, DEBUG, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, ALLOWED_HOSTS, STATICFILES_DIRS, STATIC_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,10 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'rent' / 'static']
+STATIC_URL = STATIC_URL
+STATICFILES_DIRS = STATICFILES_DIRS
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

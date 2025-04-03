@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="pakeistas gitignore failas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,22 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00025" summary="mano uzsakymuose rodo grazinimo datas">
-      <option name="closed" value="true" />
-      <created>1741961626099</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1741961626099</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Kol kas product.html rodo tik viena busena">
-      <option name="closed" value="true" />
-      <created>1741966323482</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1741966323482</updated>
     </task>
     <task id="LOCAL-00027" summary="Product.html rodo ir visas prekes busenas">
       <option name="closed" value="true" />
@@ -474,8 +460,35 @@
       <option name="project" value="LOCAL" />
       <updated>1743662441464</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="pakeistas gitignore failas">
+      <option name="closed" value="true" />
+      <created>1743663610304</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1743663610304</updated>
+    </task>
+    <task id="LOCAL-00075" summary="pakeistas gitignore failas">
+      <option name="closed" value="true" />
+      <created>1743663908360</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1743663908360</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sutvarkytas pradinio puslapio dizainas" />
