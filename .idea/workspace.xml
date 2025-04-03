@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d64e8421-f577-4528-b4ab-e1aaf1bbfeb2" name="Changes" comment="kosmetiniaipakeitimai">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,22 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740142458078</updated>
-    </task>
-    <task id="LOCAL-00021" summary="viskas veikia, niekas pakeisti nepavyko :-)">
-      <option name="closed" value="true" />
-      <created>1741883206602</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1741883206603</updated>
-    </task>
-    <task id="LOCAL-00022" summary="viskas veikia, niekas pakeisti nepavyko :-)">
-      <option name="closed" value="true" />
-      <created>1741883425987</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1741883425987</updated>
     </task>
     <task id="LOCAL-00023" summary="atstatytas normalus veikimas">
       <option name="closed" value="true" />
@@ -476,7 +458,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743568092268</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="kosmetiniaipakeitimai">
+      <option name="closed" value="true" />
+      <created>1743661667746</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1743661667747</updated>
+    </task>
+    <task id="LOCAL-00071" summary="kosmetiniaipakeitimai">
+      <option name="closed" value="true" />
+      <created>1743661708897</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1743661708897</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
